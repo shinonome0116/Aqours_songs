@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSVから曲名と歌詞を表示</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .song {
+            margin-bottom: 20px;
+        }
+        .song-title {
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        .song-lyrics {
+            margin-top: 10px;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>CSVから曲名と歌詞を表示</h1>
+    <div id="songs-container"></div>
+
+    <script>
+        // CSVファイルのパス（dataフォルダ内）
+        const csvFilePath = 'data/songs.csv';
+
+        // ページが読み込まれたときにCSVを読み込む
+        window.onload = function() {
+            fetch(csvFilePath)
+                .then(response => response.text())  // CSVファイルをテキストとして取得
+                .then(csvContent => {
+                    parseCSV(csvContent);  // CSVの内容を解析
+                })
+                .catch(error => {
+                    console.error('CSVファイルの読み込みエラー:', error);
+                });
+        };
+
+        // CSVの内容を解析して曲名と歌詞を表示
+        function parseCSV(csvContent) {
+            const lines = csvContent.split('\n');
+            const songs = [];
+
+            // CSVの各行を解析して、曲名と歌詞をsongs配列に格納
+            for (let i = 1; i < lines.length; i++) {  // 1行目はヘッダーなのでスキップ
+                const row = lines[i].split(',');
+                if (row.length === 2) {
+                    const title = row[0].trim();
+                    const lyrics = row[1].trim();
+                    songs.push({ title, lyrics });
+                }
+            }
+
+            displaySongs(songs);  // 曲名と歌詞を表示
+        }
+
+        // 曲名と歌詞を画面に表示する
+        function displaySongs(songs) {
+            const container = document.getElementById('songs-container');
+            container.innerHTML = '';  // 既存の内容をクリア
+
+            songs.forEach(song => {
+                const songDiv = document.createElement('div');
+                songDiv.classList.add('song');
+
+                const titleDiv = document.createElement('div');
+                titleDiv.classList.add('song-title');
+                titleDiv.textContent = song.title;
+
+                const lyricsDiv = document.createElement('div');
+                lyricsDiv.classList.add('song-lyrics');
+                lyricsDiv.textContent = song.lyrics;
+
+                songDiv.appendChild(titleDiv);
+                songDiv.appendChild(lyricsDiv);
+                container.appendChild(songDiv);
+            });
+        }
+    </script>
+
+</body>
+</html>
