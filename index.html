@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSVから曲名と歌詞を表示</title>
+    <title>Aqours歌詞一覧</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -24,42 +24,272 @@
 </head>
 <body>
 
-    <h1>CSVから曲名と歌詞を表示</h1>
+    <h1>Aqours歌詞一覧</h1>
+    <div class="filter-conditions">
+        <div class="lyrics">
+            <div class="title">
+                <label for="filterInput">歌詞で絞り込み:</label>
+            </div>
+            <div class="keyword-input">
+                <input type="text" id="lyrics" placeholder="キーワードを入力してください">
+            </div>
+        </div>
+        <div class="writer">
+            <div class="title">
+                <label for="filterInput">作詞者で絞り込み:</label>
+            </div>
+            <div class="keyword-input">
+                <input type="text" id="writer" placeholder="キーワードを入力してください">
+            </div>
+        </div>
+        <div class="composition">
+            <div class="title">
+                <label for="filterInput">作曲者で絞り込み:</label>
+            </div>
+            <div class="keyword-input">
+                <input type="text" id="composition" placeholder="キーワードを入力してください">
+            </div>
+        </div>
+        <div class="arrangement">
+            <div class="title">
+                <label for="filterInput">編曲者で絞り込み:</label>
+            </div>
+            <div class="keyword-input">
+                <input type="text" id="arrangement" placeholder="キーワードを入力してください">
+            </div>
+        </div>       
+        <div class="member">
+            <div class="title">
+                <label for="filterInput">メンバーまたはユニットで絞り込み（OR検索）:</label>
+            </div>
+            <div class="checkboxlist">
+                <div class="checkbox">
+                    <label for="chikaCheckbox">千歌</label>
+                    <input type="checkbox" id="chika">
+                </div>
+                <div class="checkbox">
+                    <label for="rikoCheckbox">梨子</label>
+                    <input type="checkbox" id="riko">
+                </div>
+                <div class="checkbox">
+                    <label for="rikoCheckbox">果南</label>
+                    <input type="checkbox" id="kanan">
+                </div>
+                <div class="checkbox">
+                    <label for="rikoCheckbox">ダイヤ</label>
+                    <input type="checkbox" id="dia">
+                </div>
+                <div class="checkbox">
+                    <label for="rikoCheckbox">曜</label>
+                    <input type="checkbox" id="you">
+                </div>
+                <div class="checkbox">
+                    <label for="rikoCheckbox">善子</label>
+                    <input type="checkbox" id="yoshiko">
+                </div>
+                <div class="checkbox">
+                    <label for="rikoCheckbox">花丸</label>
+                    <input type="checkbox" id="hanamaru">
+                </div>
+                <div class="checkbox">
+                    <label for="rikoCheckbox">鞠莉</label>
+                    <input type="checkbox" id="mari">
+                </div>
+                <div class="checkbox">
+                    <label for="rikoCheckbox">ルビィ</label>
+                    <input type="checkbox" id="ruby">
+                </div>
+            </div>
+            <div class="checkboxlist">
+                <div class="checkbox">
+                    <label for="chikaCheckbox">CYaRon!</label>
+                    <input type="checkbox" id="cyaron">
+                </div>
+                <div class="checkbox">
+                    <label for="rikoCheckbox">AZALEA</label>
+                    <input type="checkbox" id="azalea">
+                </div>
+                <div class="checkbox">
+                    <label for="rikoCheckbox">Guilty Kiss</label>
+                    <input type="checkbox" id="guiltyKiss">
+                </div>
+                <div class="checkbox">
+                    <label for="rikoCheckbox">わいわいわい</label>
+                    <input type="checkbox" id="yyy">
+                </div>
+                <div class="checkbox">
+                    <label for="rikoCheckbox">Saint Snow</label>
+                    <input type="checkbox" id="saintSnow">
+                </div>
+            </div>
+        </div>
+        <div class="attribute">
+            <div class="title">
+                <label for="filterInput">曲の属性で絞り込み（OR検索）:</label>
+            </div>
+            <div class="checkboxlist">
+                <div class="checkbox">
+                    <label for="chikaCheckbox">全員曲</label>
+                    <input type="checkbox" id="aqours">
+                </div>
+                <div class="checkbox">
+                    <label for="rikoCheckbox">ユニット</label>
+                    <input type="checkbox" id="unit">
+                </div>
+                <div class="checkbox">
+                    <label for="rikoCheckbox">ソロ</label>
+                    <input type="checkbox" id="solo">
+                </div>
+                <div class="checkbox">
+                    <label for="rikoCheckbox">学年</label>
+                    <input type="checkbox" id="grade">
+                </div>
+                <div class="checkbox">
+                    <label for="rikoCheckbox">デュオトリオ（ヨハネ含む）</label>
+                    <input type="checkbox" id="duoTrio">
+                </div>
+                <div class="checkbox">
+                    <label for="rikoCheckbox">セイントアクアスノー</label>
+                    <input type="checkbox" id="saintAqoursSnow">
+                </div>
+                <div class="checkbox">
+                    <label for="rikoCheckbox">幻日のヨハネ</label>
+                    <input type="checkbox" id="yohane">
+                </div>
+                <div class="checkbox">
+                    <label for="rikoCheckbox">その他少人数編成</label>
+                    <input type="checkbox" id="small">
+                </div>
+            </div>
+        </div>
+
+        
+
+        <div class="serch-execute">
+            <button id="filterButton">検索</button>
+        </div>
+    </div>
     <div id="songs-container"></div>
 
     <script>
         // CSVファイルのパス（dataフォルダ内）
         const csvFilePath = 'data/songs.csv';
+        let songs;
+        const songElements = {
+            title: {
+                type: "includes"
+            },
+            lyrics: {
+                type: "includes"
+            },
+            writer: {
+                type: "includes"
+            },
+            arrangement: {
+                type: "includes"
+            },
+            lyrics: {
+                type: "includes"
+            },
+            chika: {
+                type: "member"
+            },
+            riko: {
+                type: "member"
+            },
+            kanan: {
+                type: "member"
+            },
+            dia: {
+                type: "member"
+            },
+            you: {
+                type: "member"
+            },
+            yoshiko: {
+                type: "member"
+            },
+            hanamaru: {
+                type: "member"
+            },
+            mari: {
+                type: "member"
+            },
+            ruby: {
+                type: "member"
+            },
+            cyaron: {
+                type: "member"
+            },
+            azalea: {
+                type: "member"
+            },
+            guiltyKiss: {
+                type: "member"
+            },
+            yyy: {
+                type: "member"
+            },
+            saintSnow: {
+                type: "member"
+            },
+            aqours: {
+                type: "attribute"
+            },
+            unit: {
+                type: "attribute"
+            },
+            solo: {
+                type: "attribute"
+            },
+            grade: {
+                type: "attribute"
+            },
+            duoTrio: {
+                type: "attribute"
+            },
+            saintAqoursSnow: {
+                type: "attribute"
+            },
+            yohane: {
+                type: "attribute"
+            },
+            small: {
+                type: "attribute"
+            }
+        }
+        const filterLabels = Object.keys(songElements);
 
         // ページが読み込まれたときにCSVを読み込む
         window.onload = function() {
             fetch(csvFilePath)
                 .then(response => response.text())  // CSVファイルをテキストとして取得
                 .then(csvContent => {
-                    parseCSV(csvContent);  // CSVの内容を解析
+                    songs = parseCSV(csvContent);  // CSVの内容を解析
+                    displaySongs(songs);
                 })
                 .catch(error => {
                     console.error('CSVファイルの読み込みエラー:', error);
                 });
         };
 
-        // CSVの内容を解析して曲名と歌詞を表示
-        function parseCSV(csvContent) {
-            const lines = csvContent.split('\n');
-            const songs = [];
-
-            // CSVの各行を解析して、曲名と歌詞をsongs配列に格納
-            for (let i = 1; i < lines.length; i++) {  // 1行目はヘッダーなのでスキップ
-                const row = lines[i].split(',');
-                if (row.length === 2) {
-                    const title = row[0].trim();
-                    const lyrics = row[1].trim();
-                    songs.push({ title, lyrics });
+        document.getElementById('filterButton').addEventListener('click', function() {
+            let filterConditions = {};
+            filterLabels.forEach(filterLabel => {
+                let enteredElement = document.getElementById(filterLabel);
+                if(enteredElement) {
+                    if(songElements[filterLabel].type === "includes" && enteredElement.value.trim().length > 0) {
+                        filterConditions[filterLabel] = enteredElement.value.toLowerCase().split(/( |　)/);
+                    } else if(songElements[filterLabel].type === "member" || songElements[filterLabel].type === "attribute") {
+                        filterConditions[filterLabel] = enteredElement.checked;
+                    }
+                    
                 }
-            }
+            })
+            console.log(filterConditions);
+            displaySongs(filteredSongs(filterConditions));
+        });
 
-            displaySongs(songs);  // 曲名と歌詞を表示
-        }
 
         // 曲名と歌詞を画面に表示する
         function displaySongs(songs) {
@@ -83,7 +313,155 @@
                 container.appendChild(songDiv);
             });
         }
+
+         /**
+         * CSVをパースして配列を返す関数
+         * @param {string} csvContent - CSVファイルの内容
+         * @returns {Array} - オブジェクトの配列（行ごとに分かれたデータ）
+         */
+         function parseCSV(csvContent) {
+            const rows = [];
+            const parsedData = [];
+            const jsonData = [];
+            let insideQuotes = false;
+            let currentRow = '';
+
+            // 文字列ごとに解析
+            for (let i = 0; i < csvContent.length; i++) {
+                const char = csvContent[i];
+                if (char === '"') {
+                    insideQuotes = !insideQuotes; // クオート内外の状態を切り替える
+                    currentRow += char; // 現在の列に文字を追加
+                } else if (char === '\n' && !insideQuotes) {
+                    rows.push(currentRow.trim()); // 改行が区切り文字として認識
+                    currentRow = ''; // 新しい列の準備
+                } else {
+                    currentRow += char; // 現在の列に文字を追加
+                }
+            }
+
+            rows.forEach(row => {
+                const columns = [];
+                let currentColumn = '';
+                let insideQuotes = false;
+
+                // 文字列ごとに解析
+                for (let i = 0; i < row.length; i++) {
+                    const char = row[i];
+
+                    // ダブルクオートが出てきた場合
+                    if (char === '"') {
+                        if (row[i-1]===',' || row[i+1]===',' || i===0 || i === row.length - 1) {
+                            insideQuotes = !insideQuotes; // クオート内外の状態を切り替える
+                        }
+                        else if(row[i-1] !=='"') {
+                            currentColumn += char;
+                        }
+                        
+                    } else if (char === ',' && !insideQuotes) {
+                        columns.push(currentColumn.trim()); // カンマが区切り文字として認識
+                        currentColumn = ''; // 新しい列の準備
+                    } else {
+                        currentColumn += char; // 現在の列に文字を追加
+                    }
+                }
+
+                // 最後の列を追加
+                if (currentColumn !== '') {
+                    columns.push(currentColumn.trim());
+                }
+
+
+                // 行をデータに追加
+                parsedData.push(columns);
+
+            });
+            
+            for (let i = 1; i < parsedData.length; i++) {
+                let row = {};
+                for (let j = 0; j < parsedData[i].length; j++) {
+                    if(parsedData[i][j] === 'TRUE') {
+                        row[parsedData[0][j]] = true;
+                    } else if(parsedData[i][j] === 'FALSE') {
+                        row[parsedData[0][j]] = false;
+                    } else {
+                        row[parsedData[0][j]] = parsedData[i][j];
+                    }
+                }
+                jsonData.push(row);
+            }
+            console.log(jsonData);
+
+            return jsonData;
+        }
+
+        // 曲を絞り込む
+        function filteredSongs(filterCondition) {
+            console.log(filterCondition);
+            return songs.filter(song => {
+                return checkSongs(song, filterCondition)
+            });
+        }
+
+        // 曲が検索条件に当てはまるかを判定する関数
+        function checkSongs(song, filterCondition) {
+            let filterConditionLabels = Object.keys(filterCondition);
+
+            // 文字列検索を実施
+            let includeResult = true;
+            filterConditionLabels.filter(filterConditionLabel => songElements[filterConditionLabel].type === 'includes').forEach(filterConditionLabel => {
+                filterCondition[filterConditionLabel].forEach(keyword => {
+                    if(!song[filterConditionLabel].toLowerCase().includes(keyword)) {
+                        includeResult = false;
+                    }
+                })
+            })
+
+            // メンバー検索を実施。OR条件で検索する
+            const memberConditionsLabels = filterConditionLabels.filter(filterConditionLabel => songElements[filterConditionLabel].type === 'member' && filterCondition[filterConditionLabel] === true);
+            let memberResult = true;
+            if(memberConditionsLabels.length > 0) {
+                memberResult = false;
+                memberConditionsLabels.forEach(filterConditionLabel => {
+                    if(song[filterConditionLabel] === filterCondition[filterConditionLabel]) {
+                        memberResult = true;
+                    }
+                })
+            }
+
+            // 属性検索を実施。OR条件で検索する
+            const attributeConditionsLabels = filterConditionLabels.filter(filterConditionLabel => songElements[filterConditionLabel].type === 'attribute' && filterCondition[filterConditionLabel] === true);
+            let attributeResult = true;
+            if(attributeConditionsLabels.length > 0) {
+                attributeResult = false;
+                attributeConditionsLabels.forEach(filterConditionLabel => {
+                    if(song[filterConditionLabel] === filterCondition[filterConditionLabel]) {
+                        attributeResult = true;
+                    }
+                })
+            }
+
+            return includeResult && memberResult && attributeResult;
+        }
+        
     </script>
+    <style>
+        .member, .attribute {
+            .checkboxlist {
+                display:flex;
+                margin-bottom: 8px;
+                div {
+                    margin-right: 32px;
+                }
+            }
+        }
+        .filter-conditions {
+            margin-bottom: 32px;
+            >div {
+                margin-bottom: 8px;
+            }
+        }
+    </style>
 
 </body>
 </html>
