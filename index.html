@@ -24,7 +24,14 @@
         .keyword-input {
             display: flex;
             .input-box {
+                display: flex;
                 margin-right: 16px;
+            }
+            .serch-method {
+                > * {
+                    margin-right: 8px;
+                }
+                display: flex;
             }
         }
         .member, .attribute {
@@ -42,6 +49,9 @@
                 margin-bottom: 8px;
             }
         }
+        .highlight {
+            background-color: #00FFFF;
+        }
     </style>
 </head>
 <body>
@@ -56,8 +66,9 @@
                 <div class="input-box">
                     <input type="text" id="lyrics" placeholder="キーワードを入力してください">                    
                 </div>
-                <div>
-                    <input type="checkbox" id="lyrics_and">               
+                <div class="serch-method">
+                    <input type="checkbox" id="lyrics_or">        
+                    <div>OR検索にする（デフォルトは空白区切りのand検索）</div>       
                 </div>
             </div>
         </div>
@@ -70,7 +81,8 @@
                     <input type="text" id="writer" placeholder="キーワードを入力してください">                    
                 </div>
                 <div class="serch-method">
-                    <input type="checkbox" id="writer">               
+                    <input type="checkbox" id="writer_or">        
+                    <div>OR検索にする</div>       
                 </div>
             </div>
         </div>
@@ -79,7 +91,13 @@
                 <label for="filterInput">作曲者で絞り込み:</label>
             </div>
             <div class="keyword-input">
-                <input type="text" id="composition" placeholder="キーワードを入力してください">
+                <div class="input-box">
+                    <input type="text" id="composition" placeholder="キーワードを入力してください">                    
+                </div>
+                <div class="serch-method">
+                    <input type="checkbox" id="composition_or">        
+                    <div>OR検索にする</div>       
+                </div>
             </div>
         </div>
         <div class="arrangement">
@@ -87,7 +105,13 @@
                 <label for="filterInput">編曲者で絞り込み:</label>
             </div>
             <div class="keyword-input">
-                <input type="text" id="arrangement" placeholder="キーワードを入力してください">
+                <div class="input-box">
+                    <input type="text" id="arrangement" placeholder="キーワードを入力してください">                    
+                </div>
+                <div class="serch-method">
+                    <input type="checkbox" id="arrangement_or">
+                    <div>OR検索にする</div>            
+                </div>
             </div>
         </div>       
         <div class="member">
@@ -191,6 +215,18 @@
                 <div class="checkbox">
                     <label for="rikoCheckbox">その他少人数編成</label>
                     <input type="checkbox" id="small">
+                </div>
+            </div>
+        </div>
+        
+        <div class="setting">
+            <div class="title">
+                <label for="filterInput">その他設定:</label>
+            </div>
+            <div class="checkboxlist">
+                <div class="checkbox">
+                    <label for="chikaCheckbox">検索キーワードをハイライトする</label>
+                    <input type="checkbox" id="highlight">
                 </div>
             </div>
         </div>
@@ -299,6 +335,23 @@
             }
         }
         const filterLabels = Object.keys(songElements);
+        let filterConditions = {
+            title: {
+                value: []
+            },
+            lyrics: {
+                value: []
+            },
+            writer: {
+                value: []
+            },
+            arrangement: {
+                value: []
+            },
+            lyrics: {
+                value: []
+            }
+        };
 
         // ページが読み込まれたときにCSVを読み込む
         window.onload = function() {
@@ -315,22 +368,21 @@
 
         // 検索実行時の処理
         document.getElementById('filterButton').addEventListener('click', function() {
-            let filterConditions = {};
             // 入力フォームから検索条件を読み込み
             filterLabels.forEach(filterLabel => {
                 let enteredElement = document.getElementById(filterLabel);
                 if(enteredElement) {
                     if(songElements[filterLabel].type === "includes" && enteredElement.value.trim().length > 0) {
                         // 文字入力の場合はスペース区切り
-                        filterConditions[filterLabel] = { andSerach: true };
-                        filterConditions[filterLabel].value = enteredElement.value.toLowerCase().split(/( |　)/);
+                        filterConditions[filterLabel] = { orSearch: document.getElementById(filterLabel + "_or").checked };
+                        filterConditions[filterLabel].value = enteredElement.value.toLowerCase().split(/ |　/);
                     } else if(songElements[filterLabel].type === "member" || songElements[filterLabel].type === "attribute") {
                         filterConditions[filterLabel] = enteredElement.checked;
                     }
                     
                 }
             })
-            console.log(filterConditions)
+            console.log(filterConditions);
             displaySongs(filteredSongs(filterConditions));
         });
 
@@ -341,6 +393,7 @@
             container.innerHTML = '';  // 既存の内容をクリア
 
             songs.forEach(song => {
+                
                 const songDiv = document.createElement('div');
                 songDiv.classList.add('song');
 
@@ -350,7 +403,7 @@
 
                 const lyricsDiv = document.createElement('div');
                 lyricsDiv.classList.add('song-lyrics');
-                lyricsDiv.textContent = song.lyrics;
+                lyricsDiv.appendChild(highlightText(song.lyrics,filterConditions.lyrics.value, document.getElementById("highlight").checked));
 
                 songDiv.appendChild(titleDiv);
                 songDiv.appendChild(lyricsDiv);
@@ -454,12 +507,31 @@
             // 文字列検索を実施
             let includeResult = true;
             filterConditionLabels.filter(filterConditionLabel => songElements[filterConditionLabel].type === 'includes').forEach(filterConditionLabel => {
+                // and検索ならtrueから始めて不一致条件があればfalseにする。or検索ならfalseから初めて一致条件があればtrueにする
+                let eachResult = !filterCondition[filterConditionLabel].orSearch;
                 filterCondition[filterConditionLabel].value.forEach(keyword => {
-                    if(!song[filterConditionLabel].toLowerCase().includes(keyword)) {
-                        includeResult = false;
+                    // 検索キーワードが含まれていた場合の処理
+                    if(song[filterConditionLabel].toLowerCase().includes(keyword)) {
+                        // or検索なら結果をtrueにする
+                        if(filterCondition[filterConditionLabel].orSearch) {
+                            eachResult = true;
+                        }
+                    } else {
+                        // 検索キーワードが含まれていなかった場合の処理
+                        // and検索なら結果をfalseにする
+                        if(!filterCondition[filterConditionLabel].orSearch) {
+                            eachResult = false;
+                        }
                     }
                 })
+                if(!eachResult) {
+                    includeResult = false;
+                }
             })
+
+            if(!includeResult) {
+                return false
+            }
 
             // メンバー検索を実施。OR条件で検索する
             const memberConditionsLabels = filterConditionLabels.filter(filterConditionLabel => songElements[filterConditionLabel].type === 'member' && filterCondition[filterConditionLabel] === true);
@@ -471,6 +543,10 @@
                         memberResult = true;
                     }
                 })
+            }
+
+            if(!memberResult) {
+                return false
             }
 
             // 属性検索を実施。OR条件で検索する
@@ -485,7 +561,41 @@
                 })
             }
 
-            return includeResult && memberResult && attributeResult;
+            
+            if(!attributeResult) {
+                return false
+            }
+
+            return true;
+        }
+
+        // ハイライトして表示するための関数
+        function highlightText(text, condition, setting) {
+            // 結果を入れるためのdivタグを作成
+            const textDiv = document.createElement('div');
+
+            if(condition.length === 0 || !setting) {
+                textDiv.textContent = text;
+                return textDiv;
+            }
+
+            // 検索キーワードで分割
+            const separator = RegExp("(" + condition.join("|") + ")");
+            console.log(separator);
+            splitedTexts = text.split(separator);
+
+            const conditionRegex = RegExp("^" + condition.join("|") + "$");
+            // spanタグに分割し、検索キーワードに該当する時だけハイライトのクラスを入れる
+            splitedTexts.forEach(splitedText => {
+                const span = document.createElement('span');
+                span.textContent = splitedText;
+                if(conditionRegex.test(splitedText)) {
+                    span.classList.add('highlight');
+                }
+                textDiv.appendChild(span);
+            })
+
+            return textDiv
         }
         
     </script>
