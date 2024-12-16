@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="manifest.json">
     <title>Aqours歌詞一覧</title>
     <style>
         body {
@@ -20,6 +21,27 @@
             margin-top: 10px;
             white-space: pre-wrap;
         }
+        .keyword-input {
+            display: flex;
+            .input-box {
+                margin-right: 16px;
+            }
+        }
+        .member, .attribute {
+            .checkboxlist {
+                display:flex;
+                margin-bottom: 8px;
+                div {
+                    margin-right: 32px;
+                }
+            }
+        }
+        .filter-conditions {
+            margin-bottom: 32px;
+            >div {
+                margin-bottom: 8px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -31,7 +53,12 @@
                 <label for="filterInput">歌詞で絞り込み:</label>
             </div>
             <div class="keyword-input">
-                <input type="text" id="lyrics" placeholder="キーワードを入力してください">
+                <div class="input-box">
+                    <input type="text" id="lyrics" placeholder="キーワードを入力してください">                    
+                </div>
+                <div>
+                    <input type="checkbox" id="lyrics_and">               
+                </div>
             </div>
         </div>
         <div class="writer">
@@ -39,7 +66,12 @@
                 <label for="filterInput">作詞者で絞り込み:</label>
             </div>
             <div class="keyword-input">
-                <input type="text" id="writer" placeholder="キーワードを入力してください">
+                <div class="input-box">
+                    <input type="text" id="writer" placeholder="キーワードを入力してください">                    
+                </div>
+                <div class="serch-method">
+                    <input type="checkbox" id="writer">               
+                </div>
             </div>
         </div>
         <div class="composition">
@@ -172,6 +204,14 @@
     <div id="songs-container"></div>
 
     <script>
+        // service workerの登録関係
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service_worker.js').then(function(registration) {
+                console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            }).catch(function(err) {
+                console.log('ServiceWorker registration failed: ', err);
+            });
+        }
         // CSVファイルのパス（dataフォルダ内）
         const csvFilePath = 'data/songs.csv';
         let songs;
@@ -273,20 +313,24 @@
                 });
         };
 
+        // 検索実行時の処理
         document.getElementById('filterButton').addEventListener('click', function() {
             let filterConditions = {};
+            // 入力フォームから検索条件を読み込み
             filterLabels.forEach(filterLabel => {
                 let enteredElement = document.getElementById(filterLabel);
                 if(enteredElement) {
                     if(songElements[filterLabel].type === "includes" && enteredElement.value.trim().length > 0) {
-                        filterConditions[filterLabel] = enteredElement.value.toLowerCase().split(/( |　)/);
+                        // 文字入力の場合はスペース区切り
+                        filterConditions[filterLabel] = { andSerach: true };
+                        filterConditions[filterLabel].value = enteredElement.value.toLowerCase().split(/( |　)/);
                     } else if(songElements[filterLabel].type === "member" || songElements[filterLabel].type === "attribute") {
                         filterConditions[filterLabel] = enteredElement.checked;
                     }
                     
                 }
             })
-            console.log(filterConditions);
+            console.log(filterConditions)
             displaySongs(filteredSongs(filterConditions));
         });
 
@@ -410,7 +454,7 @@
             // 文字列検索を実施
             let includeResult = true;
             filterConditionLabels.filter(filterConditionLabel => songElements[filterConditionLabel].type === 'includes').forEach(filterConditionLabel => {
-                filterCondition[filterConditionLabel].forEach(keyword => {
+                filterCondition[filterConditionLabel].value.forEach(keyword => {
                     if(!song[filterConditionLabel].toLowerCase().includes(keyword)) {
                         includeResult = false;
                     }
@@ -445,23 +489,6 @@
         }
         
     </script>
-    <style>
-        .member, .attribute {
-            .checkboxlist {
-                display:flex;
-                margin-bottom: 8px;
-                div {
-                    margin-right: 32px;
-                }
-            }
-        }
-        .filter-conditions {
-            margin-bottom: 32px;
-            >div {
-                margin-bottom: 8px;
-            }
-        }
-    </style>
 
 </body>
 </html>
