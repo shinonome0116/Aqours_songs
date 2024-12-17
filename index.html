@@ -13,7 +13,7 @@
         .song {
             margin-bottom: 20px;
         }
-        .song-title {
+        .song-title, .hint-title {
             font-weight: bold;
             font-size: 1.2em;
         }
@@ -51,6 +51,12 @@
         }
         .highlight {
             background-color: #00FFFF;
+        }
+        .setting {
+            display: flex;
+            >* {
+                margin-right: 8px;
+            }
         }
     </style>
 </head>
@@ -231,10 +237,25 @@
             </div>
         </div>
 
-        
+        <div class="setting">
+            <div class="title">
+                <label for="filterInput">その他の機能:</label>
+            </div>
+            <div class="serch-execute">
+                <button id="clearButton">検索条件をクリア</button>
+            </div>
+            <div class="serch-execute">
+                <button id="hintButton">ヒント</button>
+            </div>
+        </div>
 
-        <div class="serch-execute">
-            <button id="filterButton">検索</button>
+        <div class="setting">
+            <div class="title">
+                <label for="filterInput">検索実行:</label>
+            </div>
+            <div class="serch-execute">
+                <button id="filterButton">検索</button>
+            </div>
         </div>
     </div>
     <div id="songs-container"></div>
@@ -249,8 +270,10 @@
             });
         }
         // CSVファイルのパス（dataフォルダ内）
-        const csvFilePath = 'data/songs.csv';
+        const songFilePath = 'data/songs.csv';
+        const hintFilePath = 'data/hint.json';
         let songs;
+        let hints;
         const songElements = {
             title: {
                 type: "includes"
@@ -355,11 +378,21 @@
 
         // ページが読み込まれたときにCSVを読み込む
         window.onload = function() {
-            fetch(csvFilePath)
+            fetch(songFilePath)
                 .then(response => response.text())  // CSVファイルをテキストとして取得
                 .then(csvContent => {
                     songs = parseCSV(csvContent);  // CSVの内容を解析
                     displaySongs(songs);
+                })
+                .catch(error => {
+                    console.error('CSVファイルの読み込みエラー:', error);
+                });
+            
+            fetch(hintFilePath)
+                .then(response => response.json())  // CSVファイルをテキストとして取得
+                .then(hintJson => {
+                    hints = hintJson;
+                    console.log(hints);
                 })
                 .catch(error => {
                     console.error('CSVファイルの読み込みエラー:', error);
@@ -384,6 +417,60 @@
             })
             console.log(filterConditions);
             displaySongs(filteredSongs(filterConditions));
+        });
+
+        document.getElementById('clearButton').addEventListener('click', function() {
+            // 検索条件をクリア
+            filterLabels.forEach(filterLabel => {
+                let enteredElement = document.getElementById(filterLabel);
+                if(enteredElement) {
+                    if(songElements[filterLabel].type === "includes" && enteredElement.value.trim().length > 0) {
+                        // 文字入力の場合はスペース区切り
+                        document.getElementById(filterLabel + "_or").checked = false;
+                        enteredElement.value = "";
+                    } else if(songElements[filterLabel].type === "member" || songElements[filterLabel].type === "attribute") {
+                        enteredElement.checked = false;
+                    }
+                    
+                }
+            })
+        });
+
+        document.getElementById('hintButton').addEventListener('click', function() {
+            const container = document.getElementById('songs-container');
+            container.innerHTML = '';  // 既存の内容をクリア
+
+            for(let i=0; i < hints.length; i++) {
+                const hintDiv = document.createElement('div');
+                hintDiv.classList.add('hint');
+
+                const hintTitleDiv = document.createElement('div');
+                hintTitleDiv.classList.add('hint-title');
+                hintTitleDiv.textContent = "第" + (i+1) + "回";
+                hintDiv.appendChild(hintTitleDiv);
+
+                for(let j = 0; j < hints[i].length; j++ ) {
+                    const displayedSong = songs.find(song => {
+                        return song.id === hints[i][j];
+                    });
+                    const songDiv = document.createElement('div');
+                    songDiv.classList.add('song');
+
+                    const titleDiv = document.createElement('div');
+                    titleDiv.classList.add('song-title');
+                    titleDiv.textContent = displayedSong.title;
+
+                    const lyricsDiv = document.createElement('div');
+                    lyricsDiv.classList.add('song-lyrics');
+                    lyricsDiv.appendChild(highlightText(displayedSong.lyrics,filterConditions.lyrics.value, document.getElementById("highlight").checked));
+
+                    songDiv.appendChild(titleDiv);
+                    songDiv.appendChild(lyricsDiv);
+                    hintDiv.appendChild(songDiv);
+                    container.appendChild(hintDiv);
+                }
+            }
+                
         });
 
 
