@@ -402,19 +402,7 @@
         // 検索実行時の処理
         document.getElementById('filterButton').addEventListener('click', function() {
             // 入力フォームから検索条件を読み込み
-            filterLabels.forEach(filterLabel => {
-                let enteredElement = document.getElementById(filterLabel);
-                if(enteredElement) {
-                    if(songElements[filterLabel].type === "includes" && enteredElement.value.trim().length > 0) {
-                        // 文字入力の場合はスペース区切り
-                        filterConditions[filterLabel] = { orSearch: document.getElementById(filterLabel + "_or").checked };
-                        filterConditions[filterLabel].value = enteredElement.value.toLowerCase().split(/ |　/);
-                    } else if(songElements[filterLabel].type === "member" || songElements[filterLabel].type === "attribute") {
-                        filterConditions[filterLabel] = enteredElement.checked;
-                    }
-                    
-                }
-            })
+            getCondition();
             console.log(filterConditions);
             displaySongs(filteredSongs(filterConditions));
         });
@@ -436,6 +424,7 @@
             })
         });
 
+        // ヒントコーナーの曲を表示する関数
         document.getElementById('hintButton').addEventListener('click', function() {
             const container = document.getElementById('songs-container');
             container.innerHTML = '';  // 既存の内容をクリア
@@ -448,6 +437,8 @@
                 hintTitleDiv.classList.add('hint-title');
                 hintTitleDiv.textContent = "第" + (i+1) + "回";
                 hintDiv.appendChild(hintTitleDiv);
+
+                getCondition();
 
                 for(let j = 0; j < hints[i].length; j++ ) {
                     const displayedSong = songs.find(song => {
@@ -683,6 +674,23 @@
             })
 
             return textDiv
+        }
+
+        // 入力フォームの検索条件を読み込む関数
+        function getCondition() {
+            filterLabels.forEach(filterLabel => {
+                let enteredElement = document.getElementById(filterLabel);
+                if(enteredElement) {
+                    if(songElements[filterLabel].type === "includes" && enteredElement.value.trim().length > 0) {
+                        // 文字入力の場合はスペース区切り
+                        filterConditions[filterLabel] = { orSearch: document.getElementById(filterLabel + "_or").checked };
+                        filterConditions[filterLabel].value = enteredElement.value.toLowerCase().split(/ |　/);
+                    } else if(songElements[filterLabel].type === "member" || songElements[filterLabel].type === "attribute") {
+                        filterConditions[filterLabel] = enteredElement.checked;
+                    }
+                    
+                }
+            })
         }
         
     </script>
