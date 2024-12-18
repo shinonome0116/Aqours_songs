@@ -10,21 +10,33 @@
             font-family: Arial, sans-serif;
             margin: 20px;
         }
-        .song {
-            margin-bottom: 20px;
+        .songs-container{
+            .song {
+                margin-bottom: 20px;
+            }
+            .song-title, .hint-title {
+                font-weight: bold;
+                font-size: 1.2em;
+            }
+            .song-lyrics {
+                margin-top: 10px;
+                white-space: pre-wrap;
+            }
         }
-        .song-title, .hint-title {
-            font-weight: bold;
-            font-size: 1.2em;
-        }
-        .song-lyrics {
-            margin-top: 10px;
-            white-space: pre-wrap;
+        .index-container{
+            margin-bottom: 16px;
+            .song {
+                margin-bottom: 4px;
+                cursor: pointer;
+                color: #0000FF;
+                text-decoration:underline;
+            }
         }
         .keyword-input {
             display: flex;
             .input-box {
                 display: flex;
+                flex-wrap: wrap;
                 margin-right: 16px;
             }
             .serch-method {
@@ -37,6 +49,7 @@
         .member, .attribute {
             .checkboxlist {
                 display:flex;
+                flex-wrap: wrap;
                 margin-bottom: 8px;
                 div {
                     margin-right: 32px;
@@ -54,6 +67,7 @@
         }
         .setting {
             display: flex;
+            flex-wrap: wrap;
             >* {
                 margin-right: 8px;
             }
@@ -63,7 +77,7 @@
 <body>
 
     <h1>Aqours歌詞一覧</h1>
-    <div class="filter-conditions">
+    <div class="filter-conditions" id="filter-conditions">
         <div class="lyrics">
             <div class="title">
                 <label for="filterInput">歌詞で絞り込み:</label>
@@ -126,62 +140,62 @@
             </div>
             <div class="checkboxlist">
                 <div class="checkbox">
-                    <label for="chikaCheckbox">千歌</label>
                     <input type="checkbox" id="chika">
+                    <label for="chikaCheckbox">千歌</label>
                 </div>
                 <div class="checkbox">
-                    <label for="rikoCheckbox">梨子</label>
                     <input type="checkbox" id="riko">
+                    <label for="rikoCheckbox">梨子</label>
                 </div>
                 <div class="checkbox">
-                    <label for="rikoCheckbox">果南</label>
                     <input type="checkbox" id="kanan">
+                    <label for="rikoCheckbox">果南</label>
                 </div>
                 <div class="checkbox">
-                    <label for="rikoCheckbox">ダイヤ</label>
                     <input type="checkbox" id="dia">
+                    <label for="rikoCheckbox">ダイヤ</label>
                 </div>
                 <div class="checkbox">
-                    <label for="rikoCheckbox">曜</label>
                     <input type="checkbox" id="you">
+                    <label for="rikoCheckbox">曜</label>
                 </div>
                 <div class="checkbox">
-                    <label for="rikoCheckbox">善子</label>
                     <input type="checkbox" id="yoshiko">
+                    <label for="rikoCheckbox">善子</label>
                 </div>
                 <div class="checkbox">
-                    <label for="rikoCheckbox">花丸</label>
                     <input type="checkbox" id="hanamaru">
+                    <label for="rikoCheckbox">花丸</label>
                 </div>
                 <div class="checkbox">
-                    <label for="rikoCheckbox">鞠莉</label>
                     <input type="checkbox" id="mari">
+                    <label for="rikoCheckbox">鞠莉</label>
                 </div>
                 <div class="checkbox">
-                    <label for="rikoCheckbox">ルビィ</label>
                     <input type="checkbox" id="ruby">
+                    <label for="rikoCheckbox">ルビィ</label>
                 </div>
             </div>
             <div class="checkboxlist">
                 <div class="checkbox">
-                    <label for="chikaCheckbox">CYaRon!</label>
                     <input type="checkbox" id="cyaron">
+                    <label for="chikaCheckbox">CYaRon!</label>
                 </div>
                 <div class="checkbox">
-                    <label for="rikoCheckbox">AZALEA</label>
                     <input type="checkbox" id="azalea">
+                    <label for="rikoCheckbox">AZALEA</label>
                 </div>
                 <div class="checkbox">
-                    <label for="rikoCheckbox">Guilty Kiss</label>
                     <input type="checkbox" id="guiltyKiss">
+                    <label for="rikoCheckbox">Guilty Kiss</label>
                 </div>
                 <div class="checkbox">
-                    <label for="rikoCheckbox">わいわいわい</label>
                     <input type="checkbox" id="yyy">
+                    <label for="rikoCheckbox">わいわいわい</label>
                 </div>
                 <div class="checkbox">
-                    <label for="rikoCheckbox">Saint Snow</label>
                     <input type="checkbox" id="saintSnow">
+                    <label for="rikoCheckbox">Saint Snow</label>
                 </div>
             </div>
         </div>
@@ -191,36 +205,36 @@
             </div>
             <div class="checkboxlist">
                 <div class="checkbox">
-                    <label for="chikaCheckbox">全員曲</label>
                     <input type="checkbox" id="aqours">
+                    <label for="chikaCheckbox">全員曲</label>
                 </div>
                 <div class="checkbox">
-                    <label for="rikoCheckbox">ユニット</label>
                     <input type="checkbox" id="unit">
+                    <label for="rikoCheckbox">ユニット</label>
                 </div>
                 <div class="checkbox">
-                    <label for="rikoCheckbox">ソロ</label>
                     <input type="checkbox" id="solo">
+                    <label for="rikoCheckbox">ソロ</label>
                 </div>
                 <div class="checkbox">
-                    <label for="rikoCheckbox">学年</label>
                     <input type="checkbox" id="grade">
+                    <label for="rikoCheckbox">学年</label>
                 </div>
                 <div class="checkbox">
-                    <label for="rikoCheckbox">デュオトリオ（ヨハネ含む）</label>
                     <input type="checkbox" id="duoTrio">
+                    <label for="rikoCheckbox">デュオトリオ（ヨハネ含む）</label>
                 </div>
                 <div class="checkbox">
-                    <label for="rikoCheckbox">セイントアクアスノー</label>
                     <input type="checkbox" id="saintAqoursSnow">
+                    <label for="rikoCheckbox">セイントアクアスノー</label>
                 </div>
                 <div class="checkbox">
-                    <label for="rikoCheckbox">幻日のヨハネ</label>
                     <input type="checkbox" id="yohane">
+                    <label for="rikoCheckbox">幻日のヨハネ</label>
                 </div>
                 <div class="checkbox">
-                    <label for="rikoCheckbox">その他少人数編成</label>
                     <input type="checkbox" id="small">
+                    <label for="rikoCheckbox">その他少人数編成</label>
                 </div>
             </div>
         </div>
@@ -231,8 +245,12 @@
             </div>
             <div class="checkboxlist">
                 <div class="checkbox">
-                    <label for="chikaCheckbox">検索キーワードをハイライトする</label>
                     <input type="checkbox" id="highlight">
+                    <label for="chikaCheckbox">検索キーワードをハイライトする</label>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" id="index">
+                    <label for="chikaCheckbox">目次を表示する</label>
                 </div>
             </div>
         </div>
@@ -258,7 +276,8 @@
             </div>
         </div>
     </div>
-    <div id="songs-container"></div>
+    <div id="index-container" class="index-container"></div>
+    <div id="songs-container" class="songs-container"></div>
 
     <script>
         // service workerの登録関係
@@ -426,8 +445,44 @@
 
         // ヒントコーナーの曲を表示する関数
         document.getElementById('hintButton').addEventListener('click', function() {
+            const indexContainer = document.getElementById('index-container');
+            indexContainer.innerHTML = '';  // 既存の内容をクリア
+
             const container = document.getElementById('songs-container');
             container.innerHTML = '';  // 既存の内容をクリア
+
+            for(let i=0; i < hints.length; i++) {
+                const hintDiv = document.createElement('div');
+                hintDiv.classList.add('hint');
+
+                const hintTitleDiv = document.createElement('div');
+                hintTitleDiv.classList.add('hint-title');
+                hintTitleDiv.textContent = "第" + (i+1) + "回";
+                hintDiv.appendChild(hintTitleDiv);
+
+                getCondition();
+
+                for(let j = 0; j < hints[i].length; j++ ) {
+                    const displayedSong = songs.find(song => {
+                        return song.id === hints[i][j];
+                    });
+                    const songDiv = document.createElement('div');
+                    songDiv.classList.add('song');
+
+                    const titleDiv = document.createElement('div');
+                    titleDiv.classList.add('song-title');
+                    titleDiv.textContent = displayedSong.title;
+
+                    const lyricsDiv = document.createElement('div');
+                    lyricsDiv.classList.add('song-lyrics');
+                    lyricsDiv.appendChild(highlightText(displayedSong.lyrics,filterConditions.lyrics.value, document.getElementById("highlight").checked));
+
+                    songDiv.appendChild(titleDiv);
+                    songDiv.appendChild(lyricsDiv);
+                    hintDiv.appendChild(songDiv);
+                    container.appendChild(hintDiv);
+                }
+            }
 
             for(let i=0; i < hints.length; i++) {
                 const hintDiv = document.createElement('div');
@@ -467,13 +522,43 @@
 
         // 曲名と歌詞を画面に表示する
         function displaySongs(songs) {
-            const container = document.getElementById('songs-container');
-            container.innerHTML = '';  // 既存の内容をクリア
+            const indexContainer = document.getElementById('index-container');
+            indexContainer.innerHTML = '';  // 既存の内容をクリア
 
+            // 目次を表示
+            if(document.getElementById("index").checked) {
+                songs.forEach(song => {
+                    const songDiv = document.createElement('div');
+                    songDiv.classList.add('song');
+
+                    const titleDiv = document.createElement('div');
+                    titleDiv.classList.add('song-title');
+                    titleDiv.textContent = song.title;
+                    titleDiv.addEventListener('click', function() {
+                        document.getElementById(song.id).scrollIntoView({
+                            block: 'start'
+                        });
+                    });
+
+                    songDiv.appendChild(titleDiv);
+                    indexContainer.appendChild(songDiv);
+                });
+            }
+
+            // 歌詞を表示
+            const songsContainer = document.getElementById('songs-container');
+            songsContainer.innerHTML = '';  // 既存の内容をクリア
+            const backButton = document.createElement('div');
+            backButton.textContent = "トップへ戻る";
+            backButton.addEventListener('click', function() {
+                document.getElementById('filter-conditions').scrollIntoView({
+                    block: 'start'
+                });
+            });
             songs.forEach(song => {
-                
                 const songDiv = document.createElement('div');
                 songDiv.classList.add('song');
+                songDiv.id = song.id;
 
                 const titleDiv = document.createElement('div');
                 titleDiv.classList.add('song-title');
@@ -485,7 +570,9 @@
 
                 songDiv.appendChild(titleDiv);
                 songDiv.appendChild(lyricsDiv);
-                container.appendChild(songDiv);
+                songDiv.appendChild(backButton);
+
+                songsContainer.appendChild(songDiv);
             });
         }
 
