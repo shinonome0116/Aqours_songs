@@ -10,6 +10,11 @@
             font-family: Arial, sans-serif;
             margin: 20px;
         }
+        a {
+            cursor: pointer;
+            color: #0000FF;
+            text-decoration:underline;
+        }
         .songs-container{
             .song {
                 margin-bottom: 20px;
@@ -20,6 +25,7 @@
             }
             .song-lyrics {
                 margin-top: 10px;
+                margin-bottom: 16px;
                 white-space: pre-wrap;
             }
         }
@@ -548,14 +554,15 @@
             // 歌詞を表示
             const songsContainer = document.getElementById('songs-container');
             songsContainer.innerHTML = '';  // 既存の内容をクリア
-            const backButton = document.createElement('div');
-            backButton.textContent = "トップへ戻る";
-            backButton.addEventListener('click', function() {
-                document.getElementById('filter-conditions').scrollIntoView({
-                    block: 'start'
-                });
-            });
+
             songs.forEach(song => {
+                const backButton = document.createElement('a');
+                backButton.textContent = "トップへ戻る";
+                backButton.addEventListener('click', function() {
+                    document.getElementById('filter-conditions').scrollIntoView({
+                        block: 'start'
+                    });
+                });
                 const songDiv = document.createElement('div');
                 songDiv.classList.add('song');
                 songDiv.id = song.id;
