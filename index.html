@@ -681,10 +681,14 @@
             filterLabels.forEach(filterLabel => {
                 let enteredElement = document.getElementById(filterLabel);
                 if(enteredElement) {
-                    if(songElements[filterLabel].type === "includes" && enteredElement.value.trim().length > 0) {
-                        // 文字入力の場合はスペース区切り
-                        filterConditions[filterLabel] = { orSearch: document.getElementById(filterLabel + "_or").checked };
-                        filterConditions[filterLabel].value = enteredElement.value.toLowerCase().split(/ |　/);
+                    if(songElements[filterLabel].type === "includes") {
+                        if(enteredElement.value.trim().length > 0) {
+                            // 文字入力の場合はスペース区切り
+                            filterConditions[filterLabel] = { orSearch: document.getElementById(filterLabel + "_or").checked };
+                            filterConditions[filterLabel].value = enteredElement.value.toLowerCase().split(/ |　/);
+                        } else {
+                            filterConditions[filterLabel].value = [];
+                        }
                     } else if(songElements[filterLabel].type === "member" || songElements[filterLabel].type === "attribute") {
                         filterConditions[filterLabel] = enteredElement.checked;
                     }
