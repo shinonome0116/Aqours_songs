@@ -13,16 +13,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="manifest" href="manifest.json">
+     <!-- BootstrapのCSS読み込み -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <!-- Bootstrapのjs読み込み -->
+    <script src="js/bootstrap.bundle.js"></script>
     <title>Aqours歌詞一覧</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
-        }
-        a {
-            cursor: pointer;
-            color: #0000FF;
-            text-decoration:underline;
+            scroll-behavior: auto;
         }
         .songs-container{
             .song {
@@ -49,9 +49,6 @@
             }
             .song {
                 margin-bottom: 4px;
-                cursor: pointer;
-                color: #0000FF;
-                text-decoration:underline;
             }
         }
         .keyword-input {
@@ -60,6 +57,9 @@
                 display: flex;
                 flex-wrap: wrap;
                 margin-right: 16px;
+                .input {
+                    width: 100%;
+                }
             }
             .serch-method {
                 > * {
@@ -97,34 +97,34 @@
     </style>
 </head>
 <body>
-
+    <div class="container">
     <h1>Aqours歌詞一覧</h1>
     <div class="filter-conditions" id="filter-conditions">
         <div class="lyrics">
-            <div class="title">
+            <div class="title row">
                 <label for="filterInput">歌詞で絞り込み:</label>
             </div>
-            <div class="keyword-input">
-                <div class="input-box">
-                    <input type="text" id="lyrics" placeholder="キーワードを入力してください">                    
+            <div class="keyword-input row">
+                <div class="input-box col col-lg-7">
+                    <input type="text" id="lyrics" class="form-control" placeholder="キーワードを入力してください" width="100%">                    
                 </div>
-                <div class="serch-method">
-                    <input type="checkbox" id="lyrics_or">        
-                    <div>OR検索にする（デフォルトは空白区切りのand検索）</div>       
+                <div class="serch-method col col-lg-4">
+                    <input type="checkbox" class="form-check-input" id="lyrics_or">        
+                    <div class="form-check-label">OR検索にする</div> 
                 </div>
             </div>
         </div>
         <div class="writer">
             <div class="title">
-                <label for="filterInput">作詞者で絞り込み:</label>
+                <label for="filterInput row">作詞者で絞り込み:</label>
             </div>
-            <div class="keyword-input">
-                <div class="input-box">
-                    <input type="text" id="writer" placeholder="キーワードを入力してください">                    
+            <div class="keyword-input row">
+                <div class="input-box col col-lg-7">
+                    <input type="text" id="writer" class="form-control" placeholder="キーワードを入力してください">                    
                 </div>
-                <div class="serch-method">
-                    <input type="checkbox" id="writer_or">        
-                    <div>OR検索にする</div>       
+                <div class="serch-method col col-lg-4">
+                    <input type="checkbox" class="form-check-input" id="writer_or">        
+                    <div class="form-check-label">OR検索にする</div>       
                 </div>
             </div>
         </div>
@@ -132,13 +132,13 @@
             <div class="title">
                 <label for="filterInput">作曲者で絞り込み:</label>
             </div>
-            <div class="keyword-input">
-                <div class="input-box">
-                    <input type="text" id="composition" placeholder="キーワードを入力してください">                    
+            <div class="keyword-input row">
+                <div class="input-box col col-lg-7">
+                    <input type="text" id="composition" class="form-control" placeholder="キーワードを入力してください">                    
                 </div>
-                <div class="serch-method">
-                    <input type="checkbox" id="composition_or">        
-                    <div>OR検索にする</div>       
+                <div class="serch-method col col-lg-4">
+                    <input type="checkbox" class="form-check-input" id="composition_or">        
+                    <div class="form-check-label">OR検索にする</div>       
                 </div>
             </div>
         </div>
@@ -146,13 +146,13 @@
             <div class="title">
                 <label for="filterInput">編曲者で絞り込み:</label>
             </div>
-            <div class="keyword-input">
-                <div class="input-box">
-                    <input type="text" id="arrangement" placeholder="キーワードを入力してください">                    
+            <div class="keyword-input row">
+                <div class="input-box col col-lg-7">
+                    <input type="text" id="arrangement" class="form-control" placeholder="キーワードを入力してください">                    
                 </div>
-                <div class="serch-method">
-                    <input type="checkbox" id="arrangement_or">
-                    <div>OR検索にする</div>            
+                <div class="serch-method col col-lg-4">
+                    <input type="checkbox" class="form-check-input" id="arrangement_or">
+                    <div class="form-check-label">OR検索にする</div>            
                 </div>
             </div>
         </div>       
@@ -300,6 +300,7 @@
     </div>
     <div id="index-container" class="index-container"></div>
     <div id="songs-container" class="songs-container"></div>
+    </div>
 
     <script>
         // service workerの登録関係
@@ -493,9 +494,10 @@
                         const songDiv = document.createElement('div');
                         songDiv.classList.add('song');
 
-                        const titleDiv = document.createElement('div');
+                        const titleDiv = document.createElement('a');
                         titleDiv.classList.add('song-title');
                         titleDiv.textContent = displayedSong.title;
+                        titleDiv.classList.add('link-primary');
                         titleDiv.addEventListener('click', function() {
                             document.getElementById(hints[i][j]).scrollIntoView({
                                 block: 'start'
@@ -523,6 +525,7 @@
                     // 戻るボタン
                     const backButton = document.createElement('a');
                     backButton.textContent = "トップへ戻る";
+                    backButton.classList.add('link-primary');
                     backButton.addEventListener('click', function() {
                         document.getElementById('filter-conditions').scrollIntoView({
                             block: 'start'
@@ -565,12 +568,14 @@
                     const songDiv = document.createElement('div');
                     songDiv.classList.add('song');
 
-                    const titleDiv = document.createElement('div');
+                    const titleDiv = document.createElement('a');
                     titleDiv.classList.add('song-title');
+                    titleDiv.classList.add('link-primary');
                     titleDiv.textContent = song.title;
                     titleDiv.addEventListener('click', function() {
                         document.getElementById(song.id).scrollIntoView({
-                            block: 'start'
+                            block: 'start',
+                            behaviour: 'instant'
                         });
                     });
 
@@ -586,9 +591,11 @@
             songs.forEach(song => {
                 const backButton = document.createElement('a');
                 backButton.textContent = "トップへ戻る";
+                backButton.classList.add('link-primary');
                 backButton.addEventListener('click', function() {
                     document.getElementById('filter-conditions').scrollIntoView({
-                        block: 'start'
+                        block: 'start',
+                        behaviour: 'instant'
                     });
                 });
                 const songDiv = document.createElement('div');
