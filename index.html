@@ -274,6 +274,10 @@
                     <input type="checkbox" id="index">
                     <label for="chikaCheckbox">目次を表示する</label>
                 </div>
+                <div class="checkbox">
+                    <input type="checkbox" id="rowDisplay">
+                    <label for="chikaCheckbox">横並びで表示する</label>
+                </div>
             </div>
         </div>
 
@@ -298,8 +302,8 @@
             </div>
         </div>
     </div>
-    <div id="index-container" class="index-container"></div>
-    <div id="songs-container" class="songs-container"></div>
+    <div id="index-container" class="index-container row"></div>
+    <div id="songs-container" class="songs-container row"></div>
     </div>
 
     <script>
@@ -481,6 +485,7 @@
                 for(let i=0; i < hints.length; i++) {
                     const hintDiv = document.createElement('div');
                     hintDiv.classList.add('hint');
+                    hintDiv.classList.add('row');
 
                     const hintTitleDiv = document.createElement('div');
                     hintTitleDiv.classList.add('hint-title');
@@ -493,6 +498,11 @@
                         });
                         const songDiv = document.createElement('div');
                         songDiv.classList.add('song');
+                        if(document.getElementById("rowDisplay").checked) {
+                            songDiv.classList.add('col-12');
+                            songDiv.classList.add('col-lg-6');
+                            songDiv.classList.add('col-xxl-4');
+                        }
 
                         const titleDiv = document.createElement('a');
                         titleDiv.classList.add('song-title');
@@ -515,9 +525,11 @@
             for(let i=0; i < hints.length; i++) {
                 const hintDiv = document.createElement('div');
                 hintDiv.classList.add('hint');
+                hintDiv.classList.add('row');
 
                 const hintTitleDiv = document.createElement('div');
                 hintTitleDiv.classList.add('hint-title');
+                hintTitleDiv.classList.add('col-12');
                 hintTitleDiv.textContent = "第" + (i+1) + "回";
                 hintDiv.appendChild(hintTitleDiv);
 
@@ -536,6 +548,11 @@
                     });
                     const songDiv = document.createElement('div');
                     songDiv.classList.add('song');
+                    if(document.getElementById("rowDisplay").checked) {
+                        songDiv.classList.add('col-12');
+                        songDiv.classList.add('col-lg-6');
+                        songDiv.classList.add('col-xxl-4');
+                    }
                     songDiv.id = hints[i][j];
 
                     const titleDiv = document.createElement('div');
@@ -564,9 +581,21 @@
 
             // 目次を表示
             if(document.getElementById("index").checked) {
+                const indexTitleDiv = document.createElement('div');
+                indexTitleDiv.textContent = "目次";
+                indexTitleDiv.classList.add('col-12');
+                indexTitleDiv.classList.add('fw-bold');
+                indexTitleDiv.classList.add('fs-5');
+                indexTitleDiv.classList.add('mb-2');
+                indexContainer.appendChild(indexTitleDiv);
                 songs.forEach(song => {
                     const songDiv = document.createElement('div');
                     songDiv.classList.add('song');
+                    if(document.getElementById("rowDisplay").checked) {
+                        songDiv.classList.add('col-12');
+                        songDiv.classList.add('col-lg-6');
+                        songDiv.classList.add('col-xxl-4');
+                    }
 
                     const titleDiv = document.createElement('a');
                     titleDiv.classList.add('song-title');
@@ -600,6 +629,11 @@
                 });
                 const songDiv = document.createElement('div');
                 songDiv.classList.add('song');
+                if(document.getElementById("rowDisplay").checked) {
+                    songDiv.classList.add('col-12');
+                    songDiv.classList.add('col-lg-6');
+                    songDiv.classList.add('col-xxl-4');
+                }
                 songDiv.id = song.id;
 
                 const titleDiv = document.createElement('div');
