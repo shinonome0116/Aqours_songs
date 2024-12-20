@@ -101,12 +101,12 @@
                 <label for="filterInput" class="fw-bold">歌詞で絞り込み:</label>
             </div>
             <div class="keyword-input row">
-                <div class="input-box col col-lg-7">
+                <div class="input-box col-7">
                     <input type="text" id="lyrics" class="form-control" placeholder="キーワードを入力してください" width="100%">                    
                 </div>
-                <div class="serch-method col col-lg-4">
+                <div class="serch-method col-4">
                     <input type="checkbox" class="form-check-input" id="lyrics_or">        
-                    <div class="form-check-label">OR検索にする</div> 
+                    <div class="form-check-label">OR検索</div> 
                 </div>
             </div>
         </div>
@@ -115,12 +115,12 @@
                 <label for="filterInput row" class="fw-bold">作詞者で絞り込み:</label>
             </div>
             <div class="keyword-input row">
-                <div class="input-box col col-lg-7">
+                <div class="input-box col-7">
                     <input type="text" id="writer" class="form-control" placeholder="キーワードを入力してください">                    
                 </div>
-                <div class="serch-method col col-lg-4">
+                <div class="serch-method col-4">
                     <input type="checkbox" class="form-check-input" id="writer_or">        
-                    <div class="form-check-label">OR検索にする</div>       
+                    <div class="form-check-label">OR検索</div>       
                 </div>
             </div>
         </div>
@@ -129,12 +129,12 @@
                 <label for="filterInput" class="fw-bold">作曲者で絞り込み:</label>
             </div>
             <div class="keyword-input row">
-                <div class="input-box col col-lg-7">
+                <div class="input-box col-7">
                     <input type="text" id="composition" class="form-control" placeholder="キーワードを入力してください">                    
                 </div>
-                <div class="serch-method col col-lg-4">
+                <div class="serch-method col-4">
                     <input type="checkbox" class="form-check-input" id="composition_or">        
-                    <div class="form-check-label">OR検索にする</div>       
+                    <div class="form-check-label">OR検索</div>       
                 </div>
             </div>
         </div>
@@ -143,12 +143,12 @@
                 <label for="filterInput" class="fw-bold">編曲者で絞り込み:</label>
             </div>
             <div class="keyword-input row">
-                <div class="input-box col col-lg-7">
+                <div class="input-box col-7">
                     <input type="text" id="arrangement" class="form-control" placeholder="キーワードを入力してください">                    
                 </div>
-                <div class="serch-method col col-lg-4">
+                <div class="serch-method col-4">
                     <input type="checkbox" class="form-check-input" id="arrangement_or">
-                    <div class="form-check-label">OR検索にする</div>            
+                    <div class="form-check-label">OR検索</div>            
                 </div>
             </div>
         </div>       
@@ -284,6 +284,9 @@
             <div class="d-flex">
                 <div class="serch-execute me-2">
                     <button id="clearButton">検索条件をクリア</button>
+                </div>
+                <div class="serch-execute me-2">
+                    <button id="showSelected">選択した楽曲を表示</button>
                 </div>
                 <div class="serch-execute">
                     <button id="hintButton">ヒント</button>
@@ -426,6 +429,9 @@
                 .then(response => response.text())  // CSVファイルをテキストとして取得
                 .then(csvContent => {
                     songs = parseCSV(csvContent);  // CSVの内容を解析
+                    songs.forEach( song => {
+                        song.selected = false;
+                    })
                     displaySongs(songs);
                 })
                 .catch(error => {
@@ -449,6 +455,14 @@
             getCondition();
             console.log(filterConditions);
             displaySongs(filteredSongs(filterConditions));
+        });
+
+        // 「選択した楽曲を表示」ボタンを押したときの処理
+        document.getElementById('showSelected').addEventListener('click', function() {
+            // 入力フォームから検索条件を読み込み
+            getCondition();
+            console.log(filterConditions);
+            displaySongs(songs.filter(song => song.selected));
         });
 
         document.getElementById('clearButton').addEventListener('click', function() {
@@ -641,6 +655,23 @@
                 }
                 songDiv.id = song.id;
 
+                // 曲名とチェックボックスを入れる用のdiv
+                const titleBoxDiv = document.createElement('div');
+                titleBoxDiv.classList.add('d-flex');
+
+                // 選択状態のチェックボックス
+                const selectCheck = document.createElement('input');
+                selectCheck.type = 'checkbox';
+                selectCheck.id = "selected-" + song.id;
+                selectCheck.checked = song.selected;
+                selectCheck.classList.add('me-1');
+                selectCheck.addEventListener('click', function() {
+                    songs.find(eachSong => eachSong.id === song.id).selected = document.getElementById("selected-" + song.id).checked;
+                    console.log(song.id);
+                    console.log(songs.find(eachSong => eachSong.id === song.id).selected);
+                });
+
+                // 曲名
                 const titleDiv = document.createElement('div');
                 titleDiv.classList.add('song-title');
                 titleDiv.textContent = song.title;
@@ -649,7 +680,9 @@
                 lyricsDiv.classList.add('song-lyrics');
                 lyricsDiv.appendChild(highlightText(song.lyrics,filterConditions.lyrics.value, document.getElementById("highlight").checked));
 
-                songDiv.appendChild(titleDiv);
+                titleBoxDiv.appendChild(selectCheck);
+                titleBoxDiv.appendChild(titleDiv);
+                songDiv.appendChild(titleBoxDiv);
                 songDiv.appendChild(lyricsDiv);
                 songDiv.appendChild(backButton);
 
