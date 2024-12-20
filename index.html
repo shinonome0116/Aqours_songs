@@ -286,7 +286,7 @@
                     <button id="clearButton">検索条件をクリア</button>
                 </div>
                 <div class="serch-execute me-2">
-                    <button id="showSelected">選択した楽曲を表示</button>
+                    <button id="showSelected">チェックした楽曲を表示</button>
                 </div>
                 <div class="serch-execute">
                     <button id="hintButton">ヒント</button>
@@ -457,7 +457,7 @@
             displaySongs(filteredSongs(filterConditions));
         });
 
-        // 「選択した楽曲を表示」ボタンを押したときの処理
+        // 「チェックした楽曲を表示」ボタンを押したときの処理
         document.getElementById('showSelected').addEventListener('click', function() {
             // 入力フォームから検索条件を読み込み
             getCondition();
