@@ -425,6 +425,7 @@
 
         // ページが読み込まれたときにCSVを読み込む
         window.onload = function() {
+            readQuery();
             fetch(songFilePath)
                 .then(response => response.text())  // CSVファイルをテキストとして取得
                 .then(csvContent => {
@@ -432,7 +433,9 @@
                     songs.forEach( song => {
                         song.selected = false;
                     })
-                    displaySongs(songs);
+                    console.log(filterConditions);
+                    getCondition();
+                    displaySongs(filteredSongs(filterConditions));
                 })
                 .catch(error => {
                     console.error('CSVファイルの読み込みエラー:', error);
@@ -454,6 +457,7 @@
             // 入力フォームから検索条件を読み込み
             getCondition();
             console.log(filterConditions);
+            updateQuery()
             displaySongs(filteredSongs(filterConditions));
         });
 
@@ -461,7 +465,6 @@
         document.getElementById('showSelected').addEventListener('click', function() {
             // 入力フォームから検索条件を読み込み
             getCondition();
-            console.log(filterConditions);
             displaySongs(songs.filter(song => song.selected));
         });
 
@@ -893,7 +896,45 @@
                     } else if(songElements[filterLabel].type === "member" || songElements[filterLabel].type === "attribute") {
                         filterConditions[filterLabel] = enteredElement.checked;
                     }
-                    
+                }
+            })
+        }
+
+        function updateQuery() {
+            const url = new URL(window.location.href);
+            url.search = '';
+            filterLabels.forEach(filterLabel => {
+                if(songElements[filterLabel].type === "includes") {
+                    if(filterConditions[filterLabel].value.length) {
+                        url.searchParams.set(filterLabel, filterConditions[filterLabel].value.join(' '));
+                    } 
+                } else if(songElements[filterLabel].type === "member" || songElements[filterLabel].type === "attribute") {
+                    if(filterConditions[filterLabel]) {
+                        url.searchParams.set(filterLabel, filterConditions[filterLabel]);
+                    }
+                }
+            })
+
+            console.log(url);
+            // URLを更新
+            window.history.pushState({}, '', url);
+        }
+
+        function readQuery() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const url = new URL(window.location.href);
+            const params = new URLSearchParams(url.search);
+
+            // すべてのキーを取得
+            const keys = Array.from(params.keys());
+            keys.forEach(filterLabel => {
+                console.log(filterLabel);
+                if(songElements[filterLabel].type === "includes") {
+                    filterConditions[filterLabel].value = urlParams.get(filterLabel);
+                    document.getElementById(filterLabel).value = urlParams.get(filterLabel);
+                } else if(songElements[filterLabel].type === "member" || songElements[filterLabel].type === "attribute") {
+                    filterConditions[filterLabel] = urlParams.get(filterLabel);
+                    document.getElementById(filterLabel).checked = urlParams.get(filterLabel);
                 }
             })
         }
