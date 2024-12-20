@@ -407,19 +407,24 @@
         const filterLabels = Object.keys(songElements);
         let filterConditions = {
             title: {
-                value: []
+                value: [],
+                orSearch: false
             },
             lyrics: {
-                value: []
+                value: [],
+                orSearch: false
             },
             writer: {
-                value: []
+                value: [],
+                orSearch: false
             },
             arrangement: {
-                value: []
+                value: [],
+                orSearch: false
             },
             lyrics: {
-                value: []
+                value: [],
+                orSearch: false
             }
         };
 
@@ -791,6 +796,9 @@
             filterConditionLabels.filter(filterConditionLabel => songElements[filterConditionLabel].type === 'includes').forEach(filterConditionLabel => {
                 // and検索ならtrueから始めて不一致条件があればfalseにする。or検索ならfalseから初めて一致条件があればtrueにする
                 let eachResult = !filterCondition[filterConditionLabel].orSearch;
+                if(filterCondition[filterConditionLabel].orSearch && filterCondition[filterConditionLabel].value.length === 0) {
+                    eachResult = true;
+                }
                 filterCondition[filterConditionLabel].value.forEach(keyword => {
                     // 検索キーワードが含まれていた場合の処理
                     if(song[filterConditionLabel].toLowerCase().includes(keyword)) {
@@ -863,7 +871,6 @@
 
             // 検索キーワードで分割
             const separator = RegExp("(" + condition.join("|") + ")");
-            console.log(separator);
             splitedTexts = text.split(separator);
 
             const conditionRegex = RegExp("^" + condition.join("|") + "$");
@@ -891,6 +898,7 @@
                             filterConditions[filterLabel] = { orSearch: document.getElementById(filterLabel + "_or").checked };
                             filterConditions[filterLabel].value = enteredElement.value.toLowerCase().split(/ |　/);
                         } else {
+                            filterConditions[filterLabel] = { orSearch: document.getElementById(filterLabel + "_or").checked };
                             filterConditions[filterLabel].value = [];
                         }
                     } else if(songElements[filterLabel].type === "member" || songElements[filterLabel].type === "attribute") {
@@ -908,12 +916,24 @@
                     if(filterConditions[filterLabel].value.length) {
                         url.searchParams.set(filterLabel, filterConditions[filterLabel].value.join(' '));
                     } 
+                    if(filterConditions[filterLabel].orSearch) {
+                        url.searchParams.set(filterLabel + "_or", filterConditions[filterLabel].orSearch);
+                    } 
                 } else if(songElements[filterLabel].type === "member" || songElements[filterLabel].type === "attribute") {
                     if(filterConditions[filterLabel]) {
                         url.searchParams.set(filterLabel, filterConditions[filterLabel]);
                     }
                 }
             })
+            if(document.getElementById("highlight").checked) {
+                url.searchParams.set("highlight", document.getElementById("highlight").checked);
+            }
+            if(document.getElementById("index").checked) {
+                url.searchParams.set("index", document.getElementById("index").checked);
+            }
+            if(document.getElementById("rowDisplay").checked) {
+                url.searchParams.set("rowDisplay", document.getElementById("rowDisplay").checked);
+            }
 
             console.log(url);
             // URLを更新
@@ -928,13 +948,19 @@
             // すべてのキーを取得
             const keys = Array.from(params.keys());
             keys.forEach(filterLabel => {
-                console.log(filterLabel);
-                if(songElements[filterLabel].type === "includes") {
-                    filterConditions[filterLabel].value = urlParams.get(filterLabel);
-                    document.getElementById(filterLabel).value = urlParams.get(filterLabel);
-                } else if(songElements[filterLabel].type === "member" || songElements[filterLabel].type === "attribute") {
-                    filterConditions[filterLabel] = urlParams.get(filterLabel);
-                    document.getElementById(filterLabel).checked = urlParams.get(filterLabel);
+                if(filterLabels.includes(filterLabel)) {
+                    console.log(filterLabel);
+                    if(songElements[filterLabel].type === "includes") {
+                        filterConditions[filterLabel].value = urlParams.get(filterLabel);
+                        document.getElementById(filterLabel).value = urlParams.get(filterLabel);
+                    } else if(songElements[filterLabel].type === "member" || songElements[filterLabel].type === "attribute") {
+                        filterConditions[filterLabel] = urlParams.get(filterLabel);
+                        document.getElementById(filterLabel).checked = urlParams.get(filterLabel);
+                    }
+                } else {
+                    if(urlParams.get(filterLabel) === "true") {
+                        document.getElementById(filterLabel).checked = true;
+                    } 
                 }
             })
         }
