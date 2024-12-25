@@ -23,6 +23,9 @@
             font-family: Arial, sans-serif;
             margin: 20px;
             scroll-behavior: auto;
+            background-image: url("images/bg.jpg");
+            background-repeat: no-repeat;
+            background-position: center top;
         }
         a {
             cursor: pointer;
@@ -34,6 +37,7 @@
             .song-title, .hint-title {
                 font-weight: bold;
                 font-size: 1.2em;
+                background-color: #19b1f6;
             }
             .song-lyrics {
                 margin-top: 10px;
@@ -94,7 +98,8 @@
 </head>
 <body>
     <div class="container">
-    <h1>Aqours歌詞一覧</h1>
+    <div class="mx-md-5 px-2 bg-white">
+    <h1><img src="images/Aqours.png" height="72px" class="me-1">歌詞一覧</h1>
     <div class="filter-conditions" id="filter-conditions">
         <div class="lyrics">
             <div class="title row">
@@ -302,9 +307,10 @@
                 <button id="filterButton">検索</button>
             </div>
         </div>
+        <div id="index-container" class="index-container row"></div>
+        <div id="songs-container" class="songs-container row"></div>
     </div>
-    <div id="index-container" class="index-container row"></div>
-    <div id="songs-container" class="songs-container row"></div>
+    </div>
     </div>
 
     <script>
@@ -677,6 +683,8 @@
                 // 曲名とチェックボックスを入れる用のdiv
                 const titleBoxDiv = document.createElement('div');
                 titleBoxDiv.classList.add('d-flex');
+                titleBoxDiv.classList.add('song-title');
+                titleBoxDiv.classList.add('ps-2');
 
                 // 選択状態のチェックボックス
                 const selectCheck = document.createElement('input');
@@ -692,7 +700,6 @@
 
                 // 曲名
                 const titleDiv = document.createElement('div');
-                titleDiv.classList.add('song-title');
                 titleDiv.textContent = song.title;
 
                 const lyricsDiv = document.createElement('div');
