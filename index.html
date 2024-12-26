@@ -23,9 +23,33 @@
             font-family: Arial, sans-serif;
             margin: 20px;
             scroll-behavior: auto;
+            background: 
+                linear-gradient(
+                    to bottom, 
+                    white 0%, 
+                    white 800px,
+                    #6CB3EA 50%, 
+                    #123098 100%
+                );
+            background-position: top, 100px 0; /* 各レイヤーの位置を指定 */
+            background-repeat: no-repeat;
+        }
+        .numazu {
             background-image: url("images/bg.jpg");
             background-repeat: no-repeat;
             background-position: center top;
+        }
+        .content {
+            background: linear-gradient(
+                to right, 
+                rgba(255, 255, 255, 0), 
+                rgba(255, 255, 255, 1) 8px, 
+                rgba(255, 255, 255, 1) calc(100% - 8px), 
+                rgba(255, 255, 255, 0)
+            );
+            
+            background: linear-gradient(
+            );
         }
         a {
             cursor: pointer;
@@ -97,8 +121,9 @@
     </style>
 </head>
 <body>
+    <div class="numazu">
     <div class="container">
-    <div class="mx-md-5 px-2 bg-white">
+    <div class="mx-md-5 px-3 content">
     <h1><img src="images/Aqours.png" height="72px" class="me-1">歌詞一覧</h1>
     <div class="filter-conditions" id="filter-conditions">
         <div class="lyrics">
@@ -309,6 +334,7 @@
         </div>
         <div id="index-container" class="index-container row"></div>
         <div id="songs-container" class="songs-container row"></div>
+    </div>
     </div>
     </div>
     </div>
