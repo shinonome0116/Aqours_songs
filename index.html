@@ -320,7 +320,7 @@
                     <label for="chikaCheckbox">横並びで表示する</label>
                 </div>
                 <div class="checkbox col-12">
-                    <input type="checkbox" id="rowDisplay">
+                    <input type="checkbox" id="showCreators">
                     <label for="creators">楽曲製作者情報を表示する</label>
                 </div>
             </div>
@@ -372,7 +372,7 @@
         const hintFilePath = 'data/hint.json';
         let songs;
         let hints;
-        const settingIds = ["highlight", "index", "rowDisplay"];
+        const settingIds = ["highlight", "index", "rowDisplay", "showCreators"];
         const songElements = {
             title: {
                 type: "includes"
@@ -386,7 +386,7 @@
             arrangement: {
                 type: "includes"
             },
-            lyrics: {
+            composition: {
                 type: "includes"
             },
             chika: {
@@ -962,45 +962,71 @@
                 });
             });
             const songDiv = document.createElement('div');
-                songDiv.classList.add('song');
-                if(document.getElementById("rowDisplay").checked) {
-                    songDiv.classList.add('col-12');
-                    songDiv.classList.add('col-lg-6');
-                    songDiv.classList.add('col-xxl-4');
-                }
-                songDiv.id = displayedSong.id;
+            songDiv.classList.add('song');
+            if(document.getElementById("rowDisplay").checked) {
+                songDiv.classList.add('col-12');
+                songDiv.classList.add('col-lg-6');
+                songDiv.classList.add('col-xxl-4');
+            }
+            songDiv.id = displayedSong.id;
 
-                // 曲名とチェックボックスを入れる用のdiv
-                const titleBoxDiv = document.createElement('div');
-                titleBoxDiv.classList.add('d-flex');
-                titleBoxDiv.classList.add('song-title');
-                titleBoxDiv.classList.add('ps-2');
+            // 曲名とチェックボックスを入れる用のdiv
+            const titleBoxDiv = document.createElement('div');
+            titleBoxDiv.classList.add('d-flex');
+            titleBoxDiv.classList.add('song-title');
+            titleBoxDiv.classList.add('ps-2');
 
-                // 選択状態のチェックボックス
-                const selectCheck = document.createElement('input');
-                selectCheck.type = 'checkbox';
-                selectCheck.id = "selected-" + displayedSong.id;
-                selectCheck.checked = displayedSong.selected;
-                selectCheck.classList.add('me-1');
-                selectCheck.addEventListener('click', function() {
-                    songs.find(eachSong => eachSong.id === displayedSong.id).selected = document.getElementById("selected-" + displayedSong.id).checked;
-                    console.log(displayedSong.id);
-                    console.log(songs.find(eachSong => eachSong.id === displayedSong.id).selected);
-                });
 
-                // 曲名
-                const titleDiv = document.createElement('div');
-                titleDiv.textContent = displayedSong.title;
+            // 選択状態のチェックボックス
+            const selectCheck = document.createElement('input');
+            selectCheck.type = 'checkbox';
+            selectCheck.id = "selected-" + displayedSong.id;
+            selectCheck.checked = displayedSong.selected;
+            selectCheck.classList.add('me-1');
+            selectCheck.addEventListener('click', function() {
+                songs.find(eachSong => eachSong.id === displayedSong.id).selected = document.getElementById("selected-" + displayedSong.id).checked;
+                console.log(displayedSong.id);
+                console.log(songs.find(eachSong => eachSong.id === displayedSong.id).selected);
+            });
 
-                const lyricsDiv = document.createElement('div');
-                lyricsDiv.classList.add('song-lyrics');
-                lyricsDiv.appendChild(highlightText(displayedSong.lyrics,filterConditions.lyrics.value, document.getElementById("highlight").checked));
+            // 曲名
+            const titleDiv = document.createElement('div');
+            titleDiv.textContent = displayedSong.title;
 
-                titleBoxDiv.appendChild(selectCheck);
-                titleBoxDiv.appendChild(titleDiv);
-                songDiv.appendChild(titleBoxDiv);
-                songDiv.appendChild(lyricsDiv);
-                songDiv.appendChild(backButton);
+            const lyricsDiv = document.createElement('div');
+            lyricsDiv.classList.add('song-lyrics');
+            lyricsDiv.appendChild(highlightText(displayedSong.lyrics,filterConditions.lyrics.value, document.getElementById("highlight").checked));
+
+            titleBoxDiv.appendChild(selectCheck);
+            titleBoxDiv.appendChild(titleDiv);
+            songDiv.appendChild(titleBoxDiv);
+
+            if(document.getElementById('showCreators').checked) {
+                // クリエイター情報を入れる用のdiv
+                const creatorsDiv = document.createElement('div');
+
+                // 作詞者情報を入れる用のdiv
+                const writerDiv = document.createElement('div');
+                writerDiv.textContent = "作詞: " + displayedSong.writer;
+                writerDiv.classList.add('me-3');
+                creatorsDiv.appendChild(writerDiv);
+
+                // 作曲者情報を入れる用のdiv
+                const compositionDiv = document.createElement('div');
+                compositionDiv.textContent = "作曲: " + displayedSong.composition;
+                compositionDiv.classList.add('me-3');
+                creatorsDiv.appendChild(compositionDiv);
+
+                // 編曲者情報を入れる用のdiv
+                const arrangementDiv = document.createElement('div');
+                arrangementDiv.textContent = "編曲: " + displayedSong.arrangement;
+                arrangementDiv.classList.add('me-3');
+                creatorsDiv.appendChild(arrangementDiv);
+                songDiv.appendChild(creatorsDiv);
+            }
+
+            songDiv.appendChild(lyricsDiv);
+            songDiv.appendChild(backButton);
             return songDiv
         }
         
