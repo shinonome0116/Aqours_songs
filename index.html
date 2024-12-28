@@ -319,6 +319,10 @@
                     <input type="checkbox" id="rowDisplay" checked>
                     <label for="chikaCheckbox">横並びで表示する</label>
                 </div>
+                <div class="checkbox col-12">
+                    <input type="checkbox" id="rowDisplay">
+                    <label for="creators">楽曲製作者情報を表示する</label>
+                </div>
             </div>
         </div>
 
@@ -619,39 +623,11 @@
                 hintDiv.appendChild(hintTitleDiv);
 
                 for(let j = 0; j < hints[i].length; j++ ) {
-                    // 戻るボタン
-                    const backButton = document.createElement('a');
-                    backButton.textContent = "トップへ戻る";
-                    backButton.classList.add('link-primary');
-                    backButton.addEventListener('click', function() {
-                        document.getElementById('filter-conditions').scrollIntoView({
-                            block: 'start'
-                        });
-                    });
                     const displayedSong = songs.find(song => {
                         return song.id === hints[i][j];
                     });
-                    const songDiv = document.createElement('div');
-                    songDiv.classList.add('song');
-                    if(document.getElementById("rowDisplay").checked) {
-                        songDiv.classList.add('col-12');
-                        songDiv.classList.add('col-lg-6');
-                        songDiv.classList.add('col-xxl-4');
-                    }
-                    songDiv.id = hints[i][j];
-
-                    const titleDiv = document.createElement('div');
-                    titleDiv.classList.add('song-title');
-                    titleDiv.textContent = displayedSong.title;
-
-                    const lyricsDiv = document.createElement('div');
-                    lyricsDiv.classList.add('song-lyrics');
-                    lyricsDiv.appendChild(highlightText(displayedSong.lyrics,filterConditions.lyrics.value, document.getElementById("highlight").checked));
-
-                    songDiv.appendChild(titleDiv);
-                    songDiv.appendChild(lyricsDiv);
-                    songDiv.appendChild(backButton);
-                    hintDiv.appendChild(songDiv);
+                    
+                    hintDiv.appendChild(makeSongDiv(displayedSong));
                     container.appendChild(hintDiv);
                 }
             }
@@ -702,58 +678,9 @@
             const songsContainer = document.getElementById('songs-container');
             songsContainer.innerHTML = '';  // 既存の内容をクリア
 
-            songs.forEach(song => {
-                const backButton = document.createElement('a');
-                backButton.textContent = "トップへ戻る";
-                backButton.classList.add('link-primary');
-                backButton.addEventListener('click', function() {
-                    document.getElementById('filter-conditions').scrollIntoView({
-                        block: 'start',
-                        behaviour: 'instant'
-                    });
-                });
-                const songDiv = document.createElement('div');
-                songDiv.classList.add('song');
-                if(document.getElementById("rowDisplay").checked) {
-                    songDiv.classList.add('col-12');
-                    songDiv.classList.add('col-lg-6');
-                    songDiv.classList.add('col-xxl-4');
-                }
-                songDiv.id = song.id;
+            songs.forEach(displayedSong => {
 
-                // 曲名とチェックボックスを入れる用のdiv
-                const titleBoxDiv = document.createElement('div');
-                titleBoxDiv.classList.add('d-flex');
-                titleBoxDiv.classList.add('song-title');
-                titleBoxDiv.classList.add('ps-2');
-
-                // 選択状態のチェックボックス
-                const selectCheck = document.createElement('input');
-                selectCheck.type = 'checkbox';
-                selectCheck.id = "selected-" + song.id;
-                selectCheck.checked = song.selected;
-                selectCheck.classList.add('me-1');
-                selectCheck.addEventListener('click', function() {
-                    songs.find(eachSong => eachSong.id === song.id).selected = document.getElementById("selected-" + song.id).checked;
-                    console.log(song.id);
-                    console.log(songs.find(eachSong => eachSong.id === song.id).selected);
-                });
-
-                // 曲名
-                const titleDiv = document.createElement('div');
-                titleDiv.textContent = song.title;
-
-                const lyricsDiv = document.createElement('div');
-                lyricsDiv.classList.add('song-lyrics');
-                lyricsDiv.appendChild(highlightText(song.lyrics,filterConditions.lyrics.value, document.getElementById("highlight").checked));
-
-                titleBoxDiv.appendChild(selectCheck);
-                titleBoxDiv.appendChild(titleDiv);
-                songDiv.appendChild(titleBoxDiv);
-                songDiv.appendChild(lyricsDiv);
-                songDiv.appendChild(backButton);
-
-                songsContainer.appendChild(songDiv);
+                songsContainer.appendChild(makeSongDiv(displayedSong));
             });
         }
 
@@ -1022,6 +949,59 @@
                     } 
                 }
             })
+        }
+
+        function makeSongDiv(displayedSong) {
+            // 戻るボタン
+            const backButton = document.createElement('a');
+            backButton.textContent = "トップへ戻る";
+            backButton.classList.add('link-primary');
+            backButton.addEventListener('click', function() {
+                document.getElementById('filter-conditions').scrollIntoView({
+                    block: 'start'
+                });
+            });
+            const songDiv = document.createElement('div');
+                songDiv.classList.add('song');
+                if(document.getElementById("rowDisplay").checked) {
+                    songDiv.classList.add('col-12');
+                    songDiv.classList.add('col-lg-6');
+                    songDiv.classList.add('col-xxl-4');
+                }
+                songDiv.id = displayedSong.id;
+
+                // 曲名とチェックボックスを入れる用のdiv
+                const titleBoxDiv = document.createElement('div');
+                titleBoxDiv.classList.add('d-flex');
+                titleBoxDiv.classList.add('song-title');
+                titleBoxDiv.classList.add('ps-2');
+
+                // 選択状態のチェックボックス
+                const selectCheck = document.createElement('input');
+                selectCheck.type = 'checkbox';
+                selectCheck.id = "selected-" + displayedSong.id;
+                selectCheck.checked = displayedSong.selected;
+                selectCheck.classList.add('me-1');
+                selectCheck.addEventListener('click', function() {
+                    songs.find(eachSong => eachSong.id === displayedSong.id).selected = document.getElementById("selected-" + displayedSong.id).checked;
+                    console.log(displayedSong.id);
+                    console.log(songs.find(eachSong => eachSong.id === displayedSong.id).selected);
+                });
+
+                // 曲名
+                const titleDiv = document.createElement('div');
+                titleDiv.textContent = displayedSong.title;
+
+                const lyricsDiv = document.createElement('div');
+                lyricsDiv.classList.add('song-lyrics');
+                lyricsDiv.appendChild(highlightText(displayedSong.lyrics,filterConditions.lyrics.value, document.getElementById("highlight").checked));
+
+                titleBoxDiv.appendChild(selectCheck);
+                titleBoxDiv.appendChild(titleDiv);
+                songDiv.appendChild(titleBoxDiv);
+                songDiv.appendChild(lyricsDiv);
+                songDiv.appendChild(backButton);
+            return songDiv
         }
         
     </script>
