@@ -761,7 +761,7 @@
                         titleDiv.textContent = displayedSong.title;
                         titleDiv.classList.add('link-primary');
                         titleDiv.addEventListener('click', function() {
-                            document.getElementById(displayedSong.id).scrollIntoView({
+                            document.getElementById(displayedLive.day[i].date + displayedSong.id).scrollIntoView({
                                 block: 'start'
                             });
                         });
@@ -792,7 +792,7 @@
                         return song.id === String(displayedLive.day[i].setList[j]);
                     });
 
-                    hintDiv.appendChild(makeSongDiv(displayedSong));
+                    hintDiv.appendChild(makeSongDiv(displayedSong, displayedLive.day[i].date + displayedSong.id));
                     container.appendChild(hintDiv);
                 }
             }
@@ -1115,7 +1115,7 @@
             })
         }
 
-        function makeSongDiv(displayedSong) {
+        function makeSongDiv(displayedSong, linkId) {
             // 戻るボタン
             const backButton = document.createElement('a');
             backButton.textContent = "トップへ戻る";
@@ -1144,7 +1144,7 @@
             // 選択状態のチェックボックス
             const selectCheck = document.createElement('input');
             selectCheck.type = 'checkbox';
-            selectCheck.id = "selected-" + displayedSong.id;
+            selectCheck.id = "selected-" + linkId ? linkId : displayedSong.id;
             selectCheck.checked = displayedSong.selected;
             selectCheck.classList.add('me-1');
             selectCheck.addEventListener('click', function() {
