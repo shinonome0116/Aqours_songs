@@ -372,6 +372,7 @@
         const hintFilePath = 'data/hint.json';
         let songs;
         let hints;
+        let showHint = false;
         const settingIds = ["highlight", "index", "rowDisplay", "showCreators"];
         const songElements = {
             title: {
@@ -517,11 +518,17 @@
 
         settingIds.forEach(id => {
             document.getElementById(id).addEventListener('change', function() {
-                updateList();
+                if(showHint) {
+                    showHints()
+                } else {
+                    updateList();
+                }
             })
         })
         
         function updateList() {
+            document.getElementById('hintButton').textContent = "ヒント";
+            showHint = false;
             getCondition();
             console.log(filterConditions);
             updateQuery()
@@ -554,6 +561,16 @@
 
         // ヒントコーナーの曲を表示する関数
         document.getElementById('hintButton').addEventListener('click', function() {
+            if(showHint) {
+                updateList()
+            } else {
+                showHints()
+            }
+        });
+
+        function showHints() {
+            showHint = true;
+            document.getElementById('hintButton').textContent = "ヒント解除";
             const indexContainer = document.getElementById('index-container');
             indexContainer.innerHTML = '';  // 既存の内容をクリア
 
@@ -626,13 +643,12 @@
                     const displayedSong = songs.find(song => {
                         return song.id === hints[i][j];
                     });
-                    
+
                     hintDiv.appendChild(makeSongDiv(displayedSong));
                     container.appendChild(hintDiv);
                 }
             }
-                
-        });
+        }
 
 
         // 曲名と歌詞を画面に表示する
