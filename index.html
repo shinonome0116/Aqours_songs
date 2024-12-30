@@ -528,6 +528,7 @@
         
         function updateList() {
             document.getElementById('hintButton').textContent = "ヒント";
+            document.getElementById('filterButton').textContent = "検索";
             showHint = false;
             getCondition();
             console.log(filterConditions);
@@ -568,6 +569,7 @@
             getCondition();
             showHint = true;
             document.getElementById('hintButton').textContent = "ヒント更新";
+            document.getElementById('filterButton').textContent = "検索/ヒント解除";
             const indexContainer = document.getElementById('index-container');
             indexContainer.innerHTML = '';  // 既存の内容をクリア
 
