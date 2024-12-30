@@ -561,16 +561,13 @@
 
         // ヒントコーナーの曲を表示する関数
         document.getElementById('hintButton').addEventListener('click', function() {
-            if(showHint) {
-                updateList()
-            } else {
-                showHints()
-            }
+            showHints();
         });
 
         function showHints() {
+            getCondition();
             showHint = true;
-            document.getElementById('hintButton').textContent = "ヒント解除";
+            document.getElementById('hintButton').textContent = "ヒント更新";
             const indexContainer = document.getElementById('index-container');
             indexContainer.innerHTML = '';  // 既存の内容をクリア
 
