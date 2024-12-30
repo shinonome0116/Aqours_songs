@@ -119,6 +119,9 @@
         .highlight {
             background-color: #00FFFF;
         }
+        .liveOption {
+            width: calc(100% - 80px);
+        }
     </style>
 </head>
 <body>
@@ -330,15 +333,25 @@
             <div class="title">
                 <label for="filterInput" class="fw-bold">その他の機能:</label>
             </div>
-            <div class="d-flex">
-                <div class="serch-execute me-2">
-                    <button id="clearButton">検索条件をクリア</button>
-                </div>
-                <div class="serch-execute me-2">
-                    <button id="showSelected">チェックした楽曲を表示</button>
+            <div>
+                <div class="serch-execute">
+                    <span class="me-2">検索条件をクリア</span>
+                    <button id="clearButton">実行</button>
                 </div>
                 <div class="serch-execute">
-                    <button id="hintButton">ヒント</button>
+                    <span class="me-2">チェックした楽曲を表示</span>
+                    <button id="showSelected">実行</button>
+                </div>
+                <div class="serch-execute">
+                    <span class="me-2" id="hintLabel">ヒントを表示</span>
+                    <button id="hintButton">実行</button>
+                </div>
+                <div class="serch-execute">
+                    <div>ライブセットリストを表示</div>
+                    <div class="d-flex">
+                        <select id="liveList" class="liveOption me-2"></select>
+                        <button id="liveButton">表示</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -351,6 +364,7 @@
                 <button id="filterButton">検索</button>
             </div>
         </div>
+        <div id="liveTitle-container" class="fs-4 fw-bold"></div>
         <div id="index-container" class="index-container row"></div>
         <div id="songs-container" class="songs-container row"></div>
     </div>
@@ -370,9 +384,11 @@
         // CSVファイルのパス（dataフォルダ内）
         const songFilePath = 'data/songs.csv';
         const hintFilePath = 'data/hint.json';
+        const liveFilePath = 'data/lives.json';
         let songs;
         let hints;
-        let showHint = false;
+        let lives;
+        let displayedInformation ="songs"
         const settingIds = ["highlight", "index", "rowDisplay", "showCreators"];
         const songElements = {
             title: {
@@ -508,7 +524,39 @@
                 .catch(error => {
                     console.error('CSVファイルの読み込みエラー:', error);
                 });
+
+            fetch(liveFilePath)
+                .then(response => response.json())  // CSVファイルをテキストとして取得
+                .then(liveJson => {
+                    lives = liveJson;
+                    lives.forEach(live => {
+                        const newOption = document.createElement("option"); // <option>要素を作成
+                        newOption.value = live.id; // 値を設定
+                        newOption.textContent = live.title; // 表示テキストを設定
+                        document.getElementById('liveList').appendChild(newOption); // ドロップダウンに追加
+                    });
+                })
+                .catch(error => {
+                    console.error('CSVファイルの読み込みエラー:', error);
+                });
         };
+
+        function resetList() {
+            //ボタンの表示を初期化
+            document.getElementById('hintLabel').textContent = "ヒントを表示";
+            document.getElementById('filterButton').textContent = "検索";
+            // 目次をクリア
+            const liveTitleContainer = document.getElementById('liveTitle-container');
+            liveTitleContainer.innerHTML = '';
+
+            // 目次をクリア
+            const indexContainer = document.getElementById('index-container');
+            indexContainer.innerHTML = '';
+
+            // 歌詞をクリア
+            const container = document.getElementById('songs-container');
+            container.innerHTML = '';
+        }
 
         // 検索実行時の処理
         document.getElementById('filterButton').addEventListener('click', function() {
@@ -518,8 +566,10 @@
 
         settingIds.forEach(id => {
             document.getElementById(id).addEventListener('change', function() {
-                if(showHint) {
+                if(displayedInformation === "hints") {
                     showHints()
+                } else if(displayedInformation === "lives") {
+                    showLives(document.getElementById("liveList").value);
                 } else {
                     updateList();
                 }
@@ -527,9 +577,7 @@
         })
         
         function updateList() {
-            document.getElementById('hintButton').textContent = "ヒント";
-            document.getElementById('filterButton').textContent = "検索";
-            showHint = false;
+            displayedInformation = "songs";
             getCondition();
             console.log(filterConditions);
             updateQuery()
@@ -540,6 +588,7 @@
         document.getElementById('showSelected').addEventListener('click', function() {
             // 入力フォームから検索条件を読み込み
             getCondition();
+            document.getElementById('hintLabel').textContent = "ヒントを表示";
             displaySongs(songs.filter(song => song.selected));
         });
 
@@ -567,14 +616,12 @@
 
         function showHints() {
             getCondition();
-            showHint = true;
-            document.getElementById('hintButton').textContent = "ヒント更新";
+            displayedInformation = "hints";
+            resetList()
+            document.getElementById('hintLabel').textContent = "ヒントを更新";
             document.getElementById('filterButton').textContent = "検索/ヒント解除";
             const indexContainer = document.getElementById('index-container');
-            indexContainer.innerHTML = '';  // 既存の内容をクリア
-
             const container = document.getElementById('songs-container');
-            container.innerHTML = '';  // 既存の内容をクリア
 
             getCondition();
 
@@ -594,6 +641,7 @@
 
                     const hintTitleDiv = document.createElement('div');
                     hintTitleDiv.classList.add('hint-title');
+                    hintTitleDiv.classList.add('fs-3');
                     hintTitleDiv.textContent = "第" + (i+1) + "回";
                     hintDiv.appendChild(hintTitleDiv);
 
@@ -614,7 +662,7 @@
                         titleDiv.textContent = displayedSong.title;
                         titleDiv.classList.add('link-primary');
                         titleDiv.addEventListener('click', function() {
-                            document.getElementById(hints[i][j]).scrollIntoView({
+                            document.getElementById(displayedSong.id).scrollIntoView({
                                 block: 'start'
                             });
                         });
@@ -633,6 +681,8 @@
                 hintDiv.classList.add('row');
 
                 const hintTitleDiv = document.createElement('div');
+                hintTitleDiv.classList.add('fw-bold');
+                hintTitleDiv.classList.add('fs-3');
                 hintTitleDiv.classList.add('hint-title');
                 hintTitleDiv.classList.add('col-12');
                 hintTitleDiv.textContent = "第" + (i+1) + "回";
@@ -649,11 +699,111 @@
             }
         }
 
+        // 検索実行時の処理
+        document.getElementById('liveButton').addEventListener('click', function() {
+            displayedInformation = "lives";
+            // 入力フォームから検索条件を読み込み
+            showLives(document.getElementById("liveList").value);
+        });
+
+        // ライブセットリストの表示
+        function showLives(liveId) {
+            getCondition();
+            resetList()
+            const liveTitleContainer = document.getElementById('liveTitle-container');
+            const indexContainer = document.getElementById('index-container');
+            const container = document.getElementById('songs-container');
+
+            getCondition();
+
+            const displayedLive = lives.find(live => {
+                console.log()
+                return String(live.id) === liveId;
+            })
+
+            liveTitleContainer.textContent = displayedLive.title;
+
+            // 目次を表示
+            if(document.getElementById("index").checked) {
+                const indexTitleDiv = document.createElement('div');
+                indexTitleDiv.textContent = "目次";
+                indexTitleDiv.classList.add('col-12');
+                indexTitleDiv.classList.add('fw-bold');
+                indexTitleDiv.classList.add('fs-5');
+                indexTitleDiv.classList.add('mb-2');
+                indexContainer.appendChild(indexTitleDiv);
+                for(let i=0; i < displayedLive.day.length; i++) {
+                    const hintDiv = document.createElement('div');
+                    hintDiv.classList.add('hint');
+                    hintDiv.classList.add('row');
+
+                    const hintTitleDiv = document.createElement('div');
+                    hintTitleDiv.classList.add('hint-title');
+                    hintTitleDiv.classList.add('fw-bold');
+                    hintTitleDiv.classList.add('fs-3');
+                    hintTitleDiv.textContent = "Day." + (i + 1);
+                    hintDiv.appendChild(hintTitleDiv);
+
+                    for(let j = 0; j < displayedLive.day[i].setList.length; j++ ) {
+                        const displayedSong = songs.find(song => {
+                            return song.id === String(displayedLive.day[i].setList[j]);
+                        });
+                        const songDiv = document.createElement('div');
+                        songDiv.classList.add('song');
+                        if(document.getElementById("rowDisplay").checked) {
+                            songDiv.classList.add('col-12');
+                            songDiv.classList.add('col-lg-6');
+                            songDiv.classList.add('col-xxl-4');
+                        }
+
+                        const titleDiv = document.createElement('a');
+                        titleDiv.classList.add('song-title');
+                        titleDiv.textContent = displayedSong.title;
+                        titleDiv.classList.add('link-primary');
+                        titleDiv.addEventListener('click', function() {
+                            document.getElementById(displayedSong.id).scrollIntoView({
+                                block: 'start'
+                            });
+                        });
+
+                        songDiv.appendChild(titleDiv);
+                        hintDiv.appendChild(songDiv);
+                        indexContainer.appendChild(hintDiv);
+                    }
+                }
+            }
+            
+            // ライブセットリストを表示
+            for(let i=0; i < displayedLive.day.length; i++) {
+                const hintDiv = document.createElement('div');
+                hintDiv.classList.add('hint');
+                hintDiv.classList.add('row');
+
+                const hintTitleDiv = document.createElement('div');
+                hintTitleDiv.classList.add('hint-title');
+                hintTitleDiv.classList.add('fw-bold');
+                hintTitleDiv.classList.add('fs-3');
+                hintTitleDiv.classList.add('col-12');
+                hintTitleDiv.textContent = "Day." + (i + 1);
+                hintDiv.appendChild(hintTitleDiv);
+
+                for(let j = 0; j < displayedLive.day[i].setList.length; j++ ) {
+                    const displayedSong = songs.find(song => {
+                        return song.id === String(displayedLive.day[i].setList[j]);
+                    });
+
+                    hintDiv.appendChild(makeSongDiv(displayedSong));
+                    container.appendChild(hintDiv);
+                }
+            }
+        }
+
 
         // 曲名と歌詞を画面に表示する
         function displaySongs(songs) {
+            resetList()
+            
             const indexContainer = document.getElementById('index-container');
-            indexContainer.innerHTML = '';  // 既存の内容をクリア
 
             // 目次を表示
             if(document.getElementById("index").checked) {
@@ -691,7 +841,6 @@
 
             // 歌詞を表示
             const songsContainer = document.getElementById('songs-container');
-            songsContainer.innerHTML = '';  // 既存の内容をクリア
 
             songs.forEach(displayedSong => {
 
