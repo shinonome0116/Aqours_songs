@@ -365,6 +365,7 @@
                     <div>
                         <span class="me-2" id="hintLabel">セトリクイズ</span>
                         <button id="quizButton">出題</button>
+                        <button id="hardQuizButton">ハードモード</button>
                     </div>
                     </div>
                 </div>
@@ -404,6 +405,8 @@
         let hints;
         let lives;
         let answer;
+        let quizCount;
+        let quizHints = [];
         let displayedInformation ="songs"
         const settingIds = ["highlight", "index", "rowDisplay", "showCreators"];
         const songElements = {
@@ -724,15 +727,31 @@
 
         // クイズ実行時の処理
         document.getElementById('quizButton').addEventListener('click', function() {
+            quizHints = [];
             displayedInformation = "quiz";
             // 入力フォームから検索条件を読み込み
             answer = String(lives[Math.floor(Math.random() * lives.length)].id);
-            showQuiz(answer);
+            showQuiz(answer, false);
         });
 
-        function showQuiz(liveId) {
-            showLives(liveId);
+        // ハードモードクイズ実行時の処理
+        document.getElementById('hardQuizButton').addEventListener('click', function() {
+            displayedInformation = "quiz";
+            quizHints = [];
+            // 入力フォームから検索条件を読み込み
+            answer = String(lives[Math.floor(Math.random() * lives.length)].id);
+            showQuiz(answer, true);
+        });
 
+        function showQuiz(liveId, hard) {
+            quizCount = quizHints.length;
+            showLives(liveId, hard);
+
+            // ハードモードの場合ヒント表示回数を表示
+            if(hard) {
+                const index = document.getElementById("indexTitle");
+                index.textContent = `ヒント表示回数： ${quizCount}回`;
+            }
             // 入力欄の場所を取得
             const liveTitleContainer = document.getElementById('liveTitle-container');
             liveTitleContainer.innerHTML = "";
@@ -761,16 +780,16 @@
                 displayedInformation = "lives";
                 console.log(document.getElementById("answerOption").value)
                 console.log(answer)
-                // 入力フォームから検索条件を読み込み
+                // 正解と不正解の判定
                 if(answer === document.getElementById("answerOption").value) {
                     showLives(answer);
                     const liveTitleContainer = document.getElementById('liveTitle-container');
                     const resultDiv = document.createElement("div");
-                    resultDiv.textContent="正解"
+                    resultDiv.textContent= "正解" + (hard ? ` ヒント表示回数： ${quizCount}回` : "");
                     resultDiv.classList.add('mb-4');
                     liveTitleContainer.appendChild(resultDiv)
                 } else {
-                    showQuiz(answer);
+                    showQuiz(answer, hard);
                     const liveTitleContainer = document.getElementById('liveTitle-container');
                     const resultDiv = document.createElement("div");
                     resultDiv.textContent="不正解";
@@ -778,13 +797,14 @@
                     liveTitleContainer.appendChild(resultDiv)
                 }
             });
+
             answerContainer.appendChild(liveSelect);
             answerContainer.appendChild(answerButton);
             liveTitleContainer.appendChild(answerContainer);
         }
 
         // ライブセットリストの表示
-        function showLives(liveId) {
+        function showLives(liveId, hard) {
             getCondition();
             resetList()
             const liveTitleContainer = document.getElementById('liveTitle-container');
@@ -804,6 +824,7 @@
             // 目次を表示
             if(document.getElementById("index").checked) {
                 const indexTitleDiv = document.createElement('div');
+                indexTitleDiv.id = "indexTitle";
                 indexTitleDiv.textContent = "目次";
                 indexTitleDiv.classList.add('col-12');
                 indexTitleDiv.classList.add('fw-bold');
@@ -836,12 +857,21 @@
 
                         const titleDiv = document.createElement('a');
                         titleDiv.classList.add('song-title');
-                        titleDiv.textContent = displayedSong.title;
+                        titleDiv.textContent = hard && !quizHints.includes(`${i}-${j}`) ? "?" : displayedSong.title;
                         titleDiv.classList.add('link-primary');
                         titleDiv.addEventListener('click', function() {
-                            document.getElementById(displayedLive.day[i].date + displayedSong.id).scrollIntoView({
-                                block: 'start'
-                            });
+                            if(hard) {
+                                titleDiv.textContent = displayedSong.title;
+                                quizCount++;
+                                quizHints.push(`${i}-${j}`);
+                                const index = document.getElementById("indexTitle");
+                                index.textContent = `ヒント表示回数： ${quizCount}回`;
+                                console.log(quizHints);
+                            } else {
+                                document.getElementById(displayedLive.day[i].date + displayedSong.id).scrollIntoView({
+                                    block: 'start'
+                                });
+                            }
                         });
 
                         songDiv.appendChild(titleDiv);
@@ -850,28 +880,30 @@
                     }
                 }
             }
-            
+
             // ライブセットリストを表示
-            for(let i=0; i < displayedLive.day.length; i++) {
-                const hintDiv = document.createElement('div');
-                hintDiv.classList.add('hint');
-                hintDiv.classList.add('row');
+            if(!hard) {
+                for(let i=0; i < displayedLive.day.length; i++) {
+                    const hintDiv = document.createElement('div');
+                    hintDiv.classList.add('hint');
+                    hintDiv.classList.add('row');
 
-                const hintTitleDiv = document.createElement('div');
-                hintTitleDiv.classList.add('hint-title');
-                hintTitleDiv.classList.add('fw-bold');
-                hintTitleDiv.classList.add('fs-3');
-                hintTitleDiv.classList.add('col-12');
-                hintTitleDiv.textContent = "Day." + (i + 1);
-                hintDiv.appendChild(hintTitleDiv);
+                    const hintTitleDiv = document.createElement('div');
+                    hintTitleDiv.classList.add('hint-title');
+                    hintTitleDiv.classList.add('fw-bold');
+                    hintTitleDiv.classList.add('fs-3');
+                    hintTitleDiv.classList.add('col-12');
+                    hintTitleDiv.textContent = "Day." + (i + 1);
+                    hintDiv.appendChild(hintTitleDiv);
 
-                for(let j = 0; j < displayedLive.day[i].setList.length; j++ ) {
-                    const displayedSong = songs.find(song => {
-                        return song.id === String(displayedLive.day[i].setList[j]);
-                    });
+                    for(let j = 0; j < displayedLive.day[i].setList.length; j++ ) {
+                        const displayedSong = songs.find(song => {
+                            return song.id === String(displayedLive.day[i].setList[j]);
+                        });
 
-                    hintDiv.appendChild(makeSongDiv(displayedSong, displayedLive.day[i].date + displayedSong.id));
-                    container.appendChild(hintDiv);
+                        hintDiv.appendChild(makeSongDiv(displayedSong, displayedLive.day[i].date + displayedSong.id));
+                        container.appendChild(hintDiv);
+                    }
                 }
             }
         }
