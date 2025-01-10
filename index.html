@@ -884,7 +884,7 @@
                                 index.textContent = `ヒント表示回数： ${quizCount}回`;
                                 console.log(quizHints);
                             } else {
-                                document.getElementById(displayedLive.day[i].date + displayedSong.id).scrollIntoView({
+                                document.getElementById(`${displayedLive.day[i].date}-${displayedSong.id}`).scrollIntoView({
                                     block: 'start'
                                 });
                             }
@@ -917,7 +917,7 @@
                             return song.id === String(displayedLive.day[i].setList[j]);
                         });
 
-                        hintDiv.appendChild(makeSongDiv(displayedSong, displayedLive.day[i].date + displayedSong.id));
+                        hintDiv.appendChild(makeSongDiv(displayedSong, `${displayedLive.day[i].date}-${displayedSong.id}`));
                         container.appendChild(hintDiv);
                     }
                 }
@@ -1241,7 +1241,7 @@
             })
         }
 
-        function makeSongDiv(displayedSong, linkId) {
+        function makeSongDiv(displayedSong, linkId = null) {
             // 戻るボタン
             const backButton = document.createElement('a');
             backButton.textContent = "トップへ戻る";
@@ -1258,7 +1258,7 @@
                 songDiv.classList.add('col-lg-6');
                 songDiv.classList.add('col-xxl-4');
             }
-            songDiv.id = displayedSong.id;
+            songDiv.id = linkId ? linkId : displayedSong.id;
 
             // 曲名とチェックボックスを入れる用のdiv
             const titleBoxDiv = document.createElement('div');
@@ -1270,7 +1270,7 @@
             // 選択状態のチェックボックス
             const selectCheck = document.createElement('input');
             selectCheck.type = 'checkbox';
-            selectCheck.id = "selected-" + linkId ? linkId : displayedSong.id;
+            selectCheck.id = "selected-" + displayedSong.id;
             selectCheck.checked = displayedSong.selected;
             selectCheck.classList.add('me-1');
             selectCheck.addEventListener('click', function() {
