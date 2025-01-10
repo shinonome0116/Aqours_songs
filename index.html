@@ -130,6 +130,18 @@
                 width: calc(100% - 100px);
             }
         }
+
+        @media (max-width: 700px) {
+            .jacketDiv {
+                text-align: center;
+            }
+        }
+
+        .jacket {
+            margin-top: 8px;
+            object-fit: cover;
+            width: calc(min(350px, 100%));
+        }
     </style>
 </head>
 <body>
@@ -331,6 +343,10 @@
                     <label for="chikaCheckbox">横並びで表示する</label>
                 </div>
                 <div class="checkbox col-12">
+                    <input type="checkbox" id="showJacket" checked>
+                    <label for="creators">ジャケットイラストを表示する</label>
+                </div>
+                <div class="checkbox col-12">
                     <input type="checkbox" id="showCreators">
                     <label for="creators">楽曲製作者情報を表示する</label>
                 </div>
@@ -408,7 +424,7 @@
         let quizCount;
         let quizHints = [];
         let displayedInformation ="songs"
-        const settingIds = ["highlight", "index", "rowDisplay", "showCreators"];
+        const settingIds = ["highlight", "index", "rowDisplay", "showJacket", "showCreators"];
         const songElements = {
             title: {
                 type: "includes"
@@ -1275,6 +1291,16 @@
             titleBoxDiv.appendChild(titleDiv);
             songDiv.appendChild(titleBoxDiv);
 
+            const jacketDiv = document.createElement("div");
+            jacketDiv.classList.add("jacketDiv");
+
+            if(document.getElementById('rowDisplay').checked) {
+                jacketDiv.classList.add("text-center");
+            }
+            const jacket = document.createElement("img");
+            jacket.src = `images/jacket/${displayedSong.jacket}`;
+            jacket.classList.add("jacket");
+
             if(document.getElementById('showCreators').checked) {
                 // クリエイター情報を入れる用のdiv
                 const creatorsDiv = document.createElement('div');
@@ -1299,6 +1325,11 @@
                 songDiv.appendChild(creatorsDiv);
             }
 
+            
+            if(document.getElementById('showJacket').checked) {
+                jacketDiv.appendChild(jacket);
+                songDiv.appendChild(jacketDiv);
+            }
             songDiv.appendChild(lyricsDiv);
             songDiv.appendChild(backButton);
             return songDiv
