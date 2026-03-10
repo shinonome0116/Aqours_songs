@@ -938,8 +938,16 @@
                 indexTitleDiv.classList.add('col-12');
                 indexTitleDiv.classList.add('fw-bold');
                 indexTitleDiv.classList.add('fs-5');
-                indexTitleDiv.classList.add('mb-2');
+                indexTitleDiv.classList.add('mb-1');
                 indexContainer.appendChild(indexTitleDiv);
+                
+                const songCountDiv = document.createElement('div');
+                songCountDiv.textContent = `ヒット数:${songs.length}曲`;
+                songCountDiv.classList.add('col-12');
+                songCountDiv.classList.add('fs-6');
+                songCountDiv.classList.add('mb-2');
+                indexContainer.appendChild(songCountDiv);
+
                 songs.forEach(song => {
                     const songDiv = document.createElement('div');
                     songDiv.classList.add('song');
