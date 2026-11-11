@@ -1,4 +1,4 @@
-id,title,lyrics,release,writer,composition,arrangement,chika,riko,kanan,dia,you,yoshiko,hanamaru,mari,ruby,saintSnow,aqours,cyaron,guiltyKiss,azalea,yyy,solo,grade,duoTrio,unit,small,yohane,jacket
+id,title,lyrics,release,writers,compositions,arrangements,chika,riko,kanan,dia,you,yoshiko,hanamaru,mari,ruby,saintSnow,aqours,cyaron,guiltyKiss,azalea,yyy,solo,grade,duoTrio,unit,small,yohane,jacket
 1,君のこころは輝いてるかい？,"今…
 みらい、変えてみたくなったよ！
 だって僕たちは　まだ夢に気づいたばかり
@@ -629,7 +629,7 @@ Charging Heart　いま見つかったばっかり
 夢をつかまえに行くよ
 どんなことがおこるのかわからない未来
 夢をつかまえに行くよ
-みんなとなら　説明はできないけどだいじょうぶさ...まっしぐら！",2016/7/20,畑亜紀,伊藤 賢、光増ハジメ,EFFY,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,青空jumping heart.jpg
+みんなとなら　説明はできないけどだいじょうぶさ...まっしぐら！",2016/7/20,畑亜紀,"伊藤 賢,光増ハジメ",EFFY,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,青空jumping heart.jpg
 14,ハミングフレンド,"決めたいのに　決められなかったら
 キミに相談だよ
 
@@ -1257,7 +1257,7 @@ Holy star　祈りのことば
 よろこびはキミの胸を星になって照らしてるよ
 しあわせがキミと共にありますように
 
-Holy night, Holy star　キミと…",2016/11/23,畑亜紀,田中俊亮,伊藤 賢、田中俊亮,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,ジングルベルがとまらない.jpg
+Holy night, Holy star　キミと…",2016/11/23,畑亜紀,田中俊亮,"伊藤 賢,田中俊亮",TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,ジングルベルがとまらない.jpg
 27,Waku-Waku-Week!,"今週のWaku-Waku（どんなコト？）
 ねえねえねえ教えて（聞いてみたい！）
 いっぱいだWaku-Waku（どんなコト？）
@@ -1315,7 +1315,7 @@ Aye aye sir! Waku-Waku-Week, Come on!!
 いくつかの事件があったね　キミと出会って
 はじまりはどこだったかな？
 いくつかの事件で想いが近づいたからね
-・・・うれしくなっちゃうくらい！",2016/11/25,畑亜紀,ラムシーニ、内田陽吾,ラムシーニ、小高光太郎,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,Waku-Waku-Week!.jpg
+・・・うれしくなっちゃうくらい！",2016/11/25,畑亜紀,"ラムシーニ,内田陽吾","ラムシーニ,小高光太郎",FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,Waku-Waku-Week!.jpg
 28,SELF CONTROL!!,"最高だと言われたいよ　真剣だよ　We gotta go!
 
 夢は夢でも簡単に届かない
@@ -1470,7 +1470,7 @@ Shall we dance?
 一夜の忘れられないシンデレラ
 靴を脱いでおけば無くさないよ　かるくはやく
 誰を呼ぼうか？　盛りあがるね！
-ずっと踊ろう？　ずっと踊ろう！　盛りあがってね！！",2017/1/27,畑亜紀,石倉誉之,ラムシーニ、石倉誉之,FALSE,FALSE,TRUE,TRUE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,G線上のシンデレラ.png
+ずっと踊ろう？　ずっと踊ろう！　盛りあがってね！！",2017/1/27,畑亜紀,石倉誉之,"ラムシーニ,石倉誉之",FALSE,FALSE,TRUE,TRUE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,G線上のシンデレラ.png
 31,スリリング・ワンウェイ,"私たち輝きたい！
 
 マイ未来 　トライ・トライ・トライライ
@@ -1537,7 +1537,7 @@ Shall we dance?
 マイ未来 　トライ・トライ・トライライ
 ホンキ　デ　ハシレ
 マイ未来 　トライ・トライ・トライライ
-ホンキ　デ　ハシレ",2017/2/24,畑亜紀,小高光太郎、藤井亮太,小高光太郎、藤井亮太,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,スリリング・ワンウェイ.jpg
+ホンキ　デ　ハシレ",2017/2/24,畑亜紀,"小高光太郎,藤井亮太","小高光太郎,藤井亮太",TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,スリリング・ワンウェイ.jpg
 32,太陽を追いかけろ！,"トコトコ歩くのが
 （トコトコ）
 なんだか物足りないから
@@ -1911,7 +1911,7 @@ ah！どこまでもね…HAPPY TRAIN",2017/4/5,畑亜紀,渡辺拓也,EFFY,TRUE
 会いたいからきっと　次は
 触れたくなる　あなたは少年のまま？
 会いたいからきっと　次は
-少女以上で　あなたも恋に触れて",2017/4/5,畑亜紀,KOUDAI IWATSUBO、TAKAROT,Shinji Tanaka、TAKAROT,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,HAPPY PARTY TRAIN.jpg
+少女以上で　あなたも恋に触れて",2017/4/5,畑亜紀,"KOUDAI IWATSUBO,TAKAROT","Shinji Tanaka,TAKAROT",TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,HAPPY PARTY TRAIN.jpg
 39,近未来ハッピーエンド,"ひとりだけを　目が追いかけてる
 周りに人がたくさんいても　「ひとりだけ」
 そんな恋を　今してるんだね
@@ -2533,7 +2533,7 @@ Escape and Search on mind",2017/10/25,畑亜紀,渡辺和紀,渡辺和紀,TRUE,T
 夢は消えない　夢は消えない
 何度だって追いかけようよ　負けないで
 だって今日は今日で　だって目覚めたら 違う朝だよ
-ああ太陽が笑いかけるよ",2017/11/15,畑亜紀,UiNA、小高光太郎,小高光太郎,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,勇気はどこに 君の胸に!.jpg
+ああ太陽が笑いかけるよ",2017/11/15,畑亜紀,"UiNA,小高光太郎",小高光太郎,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,勇気はどこに 君の胸に!.jpg
 53,“MY LIST” to you!,"分かって、とすねちゃう私だから
 ちょっとまとめてみた！
 いつか出会う恋人に伝えたいこと
@@ -2915,7 +2915,7 @@ NEW WORLD
 
 ココロに刻むんだ　この瞬間のことを
 ココロに刻むんだ　この瞬間のことを　僕らのことを
-イマを重ね　そしてミライへ向かおう！",2018/1/17,畑亜紀,佐伯高志,佐伯高志、倉内達矢,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,WATER BLUE NEW WORLD.jpg
+イマを重ね　そしてミライへ向かおう！",2018/1/17,畑亜紀,佐伯高志,"佐伯高志,倉内達矢",TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,WATER BLUE NEW WORLD.jpg
 61,WONDERFUL STORIES,"夢を駆けてきた
 （僕たちの）WONDERFUL STORIES
 全力で輝いた物語、さ
@@ -3012,7 +3012,7 @@ NEW WORLD
 晴れるよ胸の空は
 ああいつも幸せを望んでるから
 なんて文学的な気分で眠ろうか
-おやすみなさん！　笑ってあえるよね　おやすみなさん！",2018/1/26,畑亜紀,増田基生、白須賀 悟,増田基生、白須賀 悟,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,おやすみなさん!.webp
+おやすみなさん！　笑ってあえるよね　おやすみなさん！",2018/1/26,畑亜紀,"増田基生,白須賀 悟","増田基生,白須賀 悟",FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,おやすみなさん!.webp
 63,in this unstable world,"ヒトはヒトツの存在とは限らない
 white wing black wing
 昨日と違う私が　違う答え出してたんだ
@@ -3082,7 +3082,7 @@ Ah　本当の自分わかるんだって　本当さ
 弾いてるつもり　このメロディー
 なんて大げさに聞こえるかな　でも本当よ
 忘れないでね
-出会えて嬉しくて…本当なの忘れないでね",2018/2/23,畑亜紀,青木宏憲、廣澤優也,青木宏憲、廣澤優也,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,Pianoforte Monologue.jpg
+出会えて嬉しくて…本当なの忘れないでね",2018/2/23,畑亜紀,"青木宏憲,廣澤優也","青木宏憲,廣澤優也",FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,Pianoforte Monologue.jpg
 65,Beginner’s Sailing,"笑わないよ！
 カタチから入っていいんじゃない？
 最初はヘンでも気にしない
@@ -3641,7 +3641,7 @@ Thank you, FRIENDS!!
 大好きなんだ
 君と歌うよ
 永遠って言いたくなって
-大好きな君とずっと　楽しいことしていたいからずっと…",2018/8/1,畑亜紀,TAKAROT、イワツボコーダイ,TAKAROT,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,"Thank you, FRIENDS!!.jpg"
+大好きな君とずっと　楽しいことしていたいからずっと…",2018/8/1,畑亜紀,"TAKAROT,イワツボコーダイ",TAKAROT,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,"Thank you, FRIENDS!!.jpg"
 76,No.10,"長いようで短くて
 この道はいつも　出会いをくれたから
 いまがあるんだね
@@ -3743,7 +3743,7 @@ Thank you, FRIENDS!!
 ハジマリとオワリの　線など引けないよ
 オワリはハジマリで　クルリとひとまわり
 いつの間にかまた始まる
-ハジマリ、ロード？　リロード！﻿",2018/11/24,畑亜紀,Ankle Break、FUNK UCHINO、TAKAROT,TAKAROT,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,ハジマリロード.jpg
+ハジマリ、ロード？　リロード！﻿",2018/11/24,畑亜紀,"Ankle Break,FUNK UCHINO,TAKAROT",TAKAROT,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,ハジマリロード.jpg
 78,予測不可能Driving!,"Driving! どんな道だろう？
 Driving! どんな夢だろう？
 
@@ -3794,7 +3794,7 @@ Driving! どんな夢だろう？
 迷いながらDriving 　望むところさ
 On my wayどこなんだろう
 On my way ゴールは見えないんだ
-それでも行くんだよ　予測不可能Driving!",2018/11/24,畑亜紀,pw.a、Tomomi Ogata,pw.a,FALSE,FALSE,TRUE,TRUE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,予測不可能Driving!.jpg
+それでも行くんだよ　予測不可能Driving!",2018/11/24,畑亜紀,"pw.a,Tomomi Ogata",pw.a,FALSE,FALSE,TRUE,TRUE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,予測不可能Driving!.jpg
 79,Marine Border Parasol,"悩みなきひとはいない
 水の中　ゆれる太陽
 つかまえたつもりでも
@@ -3834,7 +3834,7 @@ On my way ゴールは見えないんだ
 僕らの夢の色は　変わってくと気が付いた
 パラソル　楽しく遊んで
 じゃあねって　次の季節へと
-どこでまた会えるかは　潮風が知ってる",2018/11/24,畑亜紀,Akira Sunset、ulala,高田 暁,TRUE,TRUE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,Marine Border Parasol.jpg
+どこでまた会えるかは　潮風が知ってる",2018/11/24,畑亜紀,"Akira Sunset,ulala",高田 暁,TRUE,TRUE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,Marine Border Parasol.jpg
 80,僕らの走ってきた道は…,"そうです！
 輝きたくて　始まりたくって
 仲間に出会いながら　走ってきた道
@@ -4052,7 +4052,7 @@ Come on! Come on! Come on!
 こんなステキなことやめられない　そうだよ！
 
 Nonstop nonstop the music
-Nonstop nonstop the hopping heart",2019/1/30,畑亜紀,Kanata Okajima、Keisuke Koyama,Kanata Okajima,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,逃走迷走メビウスループ.jpg
+Nonstop nonstop the hopping heart",2019/1/30,畑亜紀,"Kanata Okajima,Keisuke Koyama",Kanata Okajima,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,逃走迷走メビウスループ.jpg
 84,Believe again,"きっとひとりじゃない　夢の中へ Go!!
 迷いながら Ready? Go!
 
@@ -4225,7 +4225,7 @@ Fly to the rainbow
 ネガイで飛ぶように踊ろうよ　つながるねココロが
 会いたかった　遠い場所にいても
 いつかまたね会えるよね
-いつかきっと会えるよね",2019/2/6,畑亜紀,Kanata Okajima、TAKAROT,Shinji Tanaka、TAKAROT,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,Brightest melody.jpg
+いつかきっと会えるよね",2019/2/6,畑亜紀,"Kanata Okajima,TAKAROT","Shinji Tanaka,TAKAROT",TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,Brightest melody.jpg
 87,Jump up HIGH!!,"Jump up!
 空高く舞う鳥へ　かさねたハート
 希望だけ持って飛ぼうよ
@@ -4270,7 +4270,7 @@ Jump up HIGH!!
 くだらなくないよ　楽しいんなら○だ！
 小っちゃい大きい気にしない　Jumpin' up higher!
 ハッピーいちばん　ムリを続けんのは✕だ！
-こころから笑いあって　Jumpin' up higher!",2019/6/30,畑亜紀,Kanata Okajima、KOUDAI IWATSUBO、TAKAROT,TAKAROT,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,Jump up high!.png
+こころから笑いあって　Jumpin' up higher!",2019/6/30,畑亜紀,"Kanata Okajima,KOUDAI IWATSUBO,TAKAROT",TAKAROT,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,Jump up high!.png
 88,"i-n-g, I TRY!!","まるで夢のようなって　言ってるけれど
 「ような」はいらない
 きっとさ　夢そのもの
@@ -4407,7 +4407,7 @@ Jump up HIGH!!
 君に届けに行きたい
 元気！　もっと！　出して！　もっと！
 これから　これからだからっ
-前へ進むんだ　思い出抱いて前に..",2019/9/25,畑亜紀,UiNA、小高光太郎,小高光太郎,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,未体験HORIZON.jpg
+前へ進むんだ　思い出抱いて前に..",2019/9/25,畑亜紀,"UiNA,小高光太郎",小高光太郎,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,未体験HORIZON.jpg
 91,Deep Resonance,"誰にも届かない声が　闇を駆け抜け
 
 希望はここから生まれ　ここで消えるのか
@@ -4684,7 +4684,7 @@ Sailors, Let's go! Sailors, Let's go!
 白い彗星　黒い雪舞う中で踊ろう
 
 New Romantic Sailors, Sailors!
-New Romantic Sailors, Sailors!",2019/11/27,畑亜紀,ulala、杉山勝彦,ulala,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,New Romantic Sailors.jpg
+New Romantic Sailors, Sailors!",2019/11/27,畑亜紀,"ulala,杉山勝彦",ulala,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,New Romantic Sailors.jpg
 96,Love Pulsar,"常識とは？なんだって？？
 ここは大宇宙よ
 星の数だけ　いろんな恋始まっては消えてく
@@ -5241,7 +5241,7 @@ Waaaao!!
 そんな時　イルカが呼んで　僕らを呼んで
 クジラに乗ってしまうんだ（なぜだなぜだ！）
 大胆な冒険　ありえないことが起こる
-それが僕らさ　ありえないはないよ　それが僕らさ　それが僕らさ！",2020/7/22,畑亜紀,Kanata Okajima、MEG,MEG,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,Fantastic Departure!.jpg
+それが僕らさ　ありえないはないよ　それが僕らさ　それが僕らさ！",2020/7/22,畑亜紀,"Kanata Okajima,MEG",MEG,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,Fantastic Departure!.jpg
 106,Aqours Pirates Desire,"暗い暗い夜の海には魔が宿るのさ
 アレもコレも欲しくなるなる　たまらない
 
@@ -5284,7 +5284,7 @@ Dan-Da-Dan Da-Dan Da-Dan Dan-Da-Dan　止まらない
 Dan-Da-Dan Da-Dan Da-Dan
 Dan-Da-Dan　奪うんだ！ Oh pirates!!
 Dan-Da-Dan Da-Dan Da-Dan Dan-Da-Dan　全てを
-Dan-Da-Dan Da-Dan Da-Dan Dan-Da-Dan　奪うんだ！",2020/7/22,畑亜紀,TAKAROT、イワツボコーダイ,TAKAROT,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,Fantastic Departure!.jpg
+Dan-Da-Dan Da-Dan Da-Dan Dan-Da-Dan　奪うんだ！",2020/7/22,畑亜紀,"TAKAROT,イワツボコーダイ",TAKAROT,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,Fantastic Departure!.jpg
 107,Never giving up!,"ステキなことが　たくさんあると
 信じてたから出会えたのかな
 pa-pa doo-wop dream!
@@ -5533,7 +5533,7 @@ My love, my place！ DAISUKI JIMOAI！！
 My love, my place！ ココだよキミと！！
 My love！（JIMO-AI Dash！）
 My love！（JIMO-AI Dash！）
-そう、愛が愛がいっぱいいっぱいあるからね！",2020/8/26,畑亜紀,TAKAROT、Carlos K.,小松一也,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,JIMO-AI Dash!.jpg
+そう、愛が愛がいっぱいいっぱいあるからね！",2020/8/26,畑亜紀,"TAKAROT,Carlos K.",小松一也,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,JIMO-AI Dash!.jpg
 112,PURE PHRASE,"心が描いた新しい世界
 ああどこだろう　どこだろう？
 
@@ -5960,7 +5960,7 @@ Party! Party! PaPaPaParty!
 みんなで　ワイワイルンラルンラしようよ
 言いたいこと　大胆に
 言っちゃいたい　遠慮なしで
-だってだって友達だもん！",2020/12/9,畑亜紀,中村 歩、菊池博人,中村 歩、菊池博人,TRUE,FALSE,FALSE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,WINTER VACATION.jpg
+だってだって友達だもん！",2020/12/9,畑亜紀,"中村 歩,菊池博人","中村 歩,菊池博人",TRUE,FALSE,FALSE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,WINTER VACATION.jpg
 119,Perfect SEKAI,"完璧で純粋なセカイが欲しい
 綺麗なものしかない場所
 ありえない？ありえます！きっとある
@@ -6004,7 +6004,7 @@ I hope the world
 幸せに笑ってる　人々の顔が見たい
 だからやっぱりもっと　強くなってみたい
 だからやっぱりもっと　強くなってみたい
-I hope the world",2021/1/1,畑亜紀,杉山勝彦、ulala,ulala,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,Perfect SEKAI.jpg
+I hope the world",2021/1/1,畑亜紀,"杉山勝彦,ulala",ulala,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,Perfect SEKAI.jpg
 120,もっとね！,"Ride a wave!
 
 待ってたんだ　心が重なるときを
@@ -6060,7 +6060,7 @@ Hold me tight!
 泳いで潜って　風が吹いたら Ride a wave!
 
 いつまでも君と遊んでいたい
-もっとね！",2021/2/10,畑亜紀,Kanata Okajima、pw.a,pw.a,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,もっとね！.jpg
+もっとね！",2021/2/10,畑亜紀,"Kanata Okajima,pw.a",pw.a,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,もっとね！.jpg
 121,あこがれランララン,"やっちゃっていいの？
 やっちゃっていいね！
 
@@ -6266,7 +6266,7 @@ smile smile ship Start!
 すぐに会える君と　会えるよすぐに
 心の羽は自由　朝焼けを渡れば
 すぐに会える君と　会えるよすぐに
-空と海の境界の夜明け",2021/3/31,畑亜紀,TAKAROT、イワツボコーダイ,TAKAROT,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,smile smile ship Start!.jpg
+空と海の境界の夜明け",2021/3/31,畑亜紀,"TAKAROT,イワツボコーダイ",TAKAROT,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,smile smile ship Start!.jpg
 124,突然GIRL,"Tu Tu La 飛んでみたら Tu Tu La 会いたくなった
 Tu Tu La 飛んで泳いで Tu Tu La 突然GIRLですっ
 Tu Tu La 飛んでみたら Tu Tu La 会いたくなった
@@ -6448,7 +6448,7 @@ Wake up kingdom
 なんどもなんども　なんどもなんども　なんどもなんども遊ぼうっ
 だいじょぶ待ってろ　だいじょぶきっとね　なんとかなっちゃう
 なにができる？　なにかできる！
-さあ、みんなに会いに　会いに行くよ！",2021/6/2,畑亜紀,TAKUYA、ミト（クラムボン）,ミト,TRUE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,ある日…永遠みたいに!.jpg
+さあ、みんなに会いに　会いに行くよ！",2021/6/2,畑亜紀,"TAKUYA,ミト（クラムボン）",ミト,TRUE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,ある日…永遠みたいに!.jpg
 128,Shiny Racers,"誰に教えられなくても
 どこかへ行かなくちゃっと　新しい場所さがすんだ
 
@@ -6633,7 +6633,7 @@ WANA-WANA DANCE yeah!
 永久のように PHOENIX DANCE yeah!
 
 Wow wow...どんな夢も
-Wow wow...貴方となら",2021/6/23,畑亜紀,山田竜平、YU-G,山田竜平,FALSE,FALSE,TRUE,TRUE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,We'll get the next dream!!!.jpg
+Wow wow...貴方となら",2021/6/23,畑亜紀,"山田竜平,YU-G",山田竜平,FALSE,FALSE,TRUE,TRUE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,We'll get the next dream!!!.jpg
 131,メタモルフィズム,"羽が生まれる...
 
 ひとり固いカプセルで
@@ -6725,7 +6725,7 @@ Wow wow...貴方となら",2021/6/23,畑亜紀,山田竜平、YU-G,山田竜平,
 がんばっちゃうココロってどんな色だろう？
 ユメ見る僕らってどんな色だろう？
 がんばっちゃうココロってどんな色だろう？
-ユメ見る僕らってどんな色だろう？",2021/6/30,畑亜紀,Kanata Okajima、MEG,MEG,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,DREAMY COLOR.jpg
+ユメ見る僕らってどんな色だろう？",2021/6/30,畑亜紀,"Kanata Okajima,MEG",MEG,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,DREAMY COLOR.jpg
 133,タテホコツバサ,"強くて（弱い？）弱いの（強い！）
 どちらも私だ　わかって（はいっ）
 両方スキだと言ってみなさい！？
@@ -6851,7 +6851,7 @@ Wow wow...貴方となら",2021/6/23,畑亜紀,山田竜平、YU-G,山田竜平,
 たとえセカイが壊れたって
 何度も何度もめぐり逢うはずさ
 君だとわかるよ
-君の心を必ず見つけるよ",2021/7/28,畑亜紀,MEG、Kanata Okajima,MEG,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,Shooting Star Warrior.jpg
+君の心を必ず見つけるよ",2021/7/28,畑亜紀,"MEG,Kanata Okajima",MEG,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,Shooting Star Warrior.jpg
 135,Deep Sea Cocoon,"誰の声も届かない繭の中で
 ずっと心を閉ざして眠ったまま
 いいの？よくない！
@@ -6897,7 +6897,7 @@ Wow wow...貴方となら",2021/6/23,畑亜紀,山田竜平、YU-G,山田竜平,
 悲しい繭を
 連れ出すよ君のこと　地上へと
 だから目を覚ましてよ　ここに私がいるよ
-無礼な愛で君をさらうよ",2021/7/28,畑亜紀,MEG、Kanata Okajima,MEG,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,Shooting Star Warrior.jpg
+無礼な愛で君をさらうよ",2021/7/28,畑亜紀,"MEG,Kanata Okajima",MEG,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,Shooting Star Warrior.jpg
 136,Nameless Love Song,"心と心　つながった
 それだけで　世界生きてく意味がある
 
@@ -6948,7 +6948,7 @@ Nameless Love Song
 Love is all, love is all
 今こそ伝えよう
 Love is all, love is all
-名も無き愛よ",2021/7/28,畑亜紀,MEG、Kanata Okajima,MEG,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,Shooting Star Warrior.jpg
+名も無き愛よ",2021/7/28,畑亜紀,"MEG,Kanata Okajima",MEG,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,Shooting Star Warrior.jpg
 137,OKAWARI Happy life!,"おかわりだっ　My happy life!
 追いかけろ　追いかけろ　限界はなーい！
 
@@ -7000,7 +7000,7 @@ Ah 想像超えたゴール目指せ Let's go!
 挑戦したいね
 波に乗れっ doo-wop doo-wop
 成長したいね
-おかわりだっ doo-wop doo-wop",2021/8/1,畑亜紀,イワツボコーダイ、TAKAROT、Shoma Yamamoto,Shoma Yamamoto、TAKAROT,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,OKAWARI Happy life!.jpg
+おかわりだっ doo-wop doo-wop",2021/8/1,畑亜紀,"イワツボコーダイ,TAKAROT,Shoma Yamamoto","Shoma Yamamoto,TAKAROT",TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,OKAWARI Happy life!.jpg
 138,Love Spiral Tower,"ねえこの先はどうなるの　気になっちゃう
 もうどうしよう　じれったくなっちゃう
 好奇心... 好奇心！
@@ -7058,7 +7058,7 @@ Ah! ひそかに描いてる　恋に恋した微熱の My story
 Doki-doki Doki-doki したくて
 禁じられた物語を
 Doki-doki Doki-doki 探してしまうよ
-と・ま・ら・ない！",2021/9/19,畑亜紀,中村 歩、菊池博人,中村 歩、菊池博人,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,Love Spiral Tower.jpg
+と・ま・ら・ない！",2021/9/19,畑亜紀,"中村 歩,菊池博人","中村 歩,菊池博人",FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,Love Spiral Tower.jpg
 139,1STAR,"いまひとつキラリとゆれた　星へと願っちゃおうか
 なるべくはやく会えますように
 一緒にしたいこと数えたら
@@ -7161,7 +7161,7 @@ Happy dance happy dance
 KU-RU-KU-RU happy dance
 Happy dance happy dance
 Happy dance happy dance
-Happy dance happy dance",2021/9/22,畑亜紀,Kanata Okajima、Soma Genda,Soma Genda,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,Ku-Ru-Ku-Ru Cruller!.jpg
+Happy dance happy dance",2021/9/22,畑亜紀,"Kanata Okajima,Soma Genda",Soma Genda,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,Ku-Ru-Ku-Ru Cruller!.jpg
 141,"SUKI for you, DREAM for you!","Oh...SUKI wo tsutae tai
 Oh...SUKI for you, DREAM for you!
 
@@ -7320,7 +7320,7 @@ Wow wow wo あきらめないで
 Wow wow wow Wow wow wow
 LIVE with a smile, smile!
 Wow wow wow Wow wow wow
-LIVE with a smile, smile!",2021/11/3,畑亜紀,Ryota Saito、Diz,EFFY (FirstCall),TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,LIVE WITH A SMILE.png
+LIVE with a smile, smile!",2021/11/3,畑亜紀,"Ryota Saito,Diz",EFFY (FirstCall),TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,LIVE WITH A SMILE.png
 144,not ALONE not HITORI,"どこなんだろう？
 君はどこで聴いてるのかな
 どんなに遠くても大丈夫だよ
@@ -7391,7 +7391,7 @@ LIVE with a smile, smile!",2021/11/3,畑亜紀,Ryota Saito、Diz,EFFY (FirstCall
 遊ぶのさ僕たちは
 ずっと一緒に（ひとりには）
 ずっと一緒に（させない）
-楽しいことしようよ　一緒にね！",2021/11/24,畑亜紀,小高光太郎、UiNA,小高光太郎、谷 ナオキ（HANO）,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,not ALONE not HITORI.jpg
+楽しいことしようよ　一緒にね！",2021/11/24,畑亜紀,"小高光太郎,UiNA","小高光太郎,谷 ナオキ（HANO）",TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,not ALONE not HITORI.jpg
 145,MOTTO-ZUTTO be with you,"ひとり想う願い　今はまだ胸の中
 きらり光った夢が集まって星座になって
 地上から指差す　迷い人導くの
@@ -7426,7 +7426,7 @@ no, no, no, no, no! 未来です
 心を捧げましょう　これからは私たち
 生まれたての希望には
 涙より優しさを吸わせてあげたいと
-抱きしめる　もっとずっと　be with you",2022/1/1,畑亜紀,Yuya Fujinaka、Jays,Jays,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,MOTTO-ZUTTO be with you.jpg
+抱きしめる　もっとずっと　be with you",2022/1/1,畑亜紀,"Yuya Fujinaka,Jays",Jays,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,MOTTO-ZUTTO be with you.jpg
 146,RUN KAKERU RUN,"ねえ聞いて　ずっと考えてたこと
 どうしたらみんなが幸せになれるかな
 
@@ -7611,7 +7611,7 @@ RUN×RUN RUN×RUN　あの場所へと　スピード上げるよ",2022/2/10,畑
 次もきっと　笑顔で　あいさつしよう
 いつ？　すぐ！　すぐだよ！！
 伝わってる　大丈夫　だから　みんなと一緒に約束しよう！
-なんどだって約束　約束しようよ　そしてまた会おうね",2022/4/13,畑亜紀,TAKUYA、MEG、Kanata Okajima,本間昭光,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,なんどだって約束!.jpg
+なんどだって約束　約束しようよ　そしてまた会おうね",2022/4/13,畑亜紀,"TAKUYA,MEG,Kanata Okajima",本間昭光,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,なんどだって約束!.jpg
 150,Paradise Chime,"（Pan Pin Pan Pin Paradise Chime）
 Come on みんな聞こえる？O.K.??
 （Pan Pin Pan Pin Paradise Chime）
@@ -7685,7 +7685,7 @@ Pan Pin Pan Pin Paradise Chime
 Pan Pin Pan Pin パラダイスへと
 Pan Pin Pan Pin Paradise Chime
 みんな聞こえてるはずだよ
-みんな聞こえてるよね Let's go",2022/4/17,畑亜紀,TAKAROT、FUNK UCHINO,TAKAROT,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,Paradise Chime.jpg
+みんな聞こえてるよね Let's go",2022/4/17,畑亜紀,"TAKAROT,FUNK UCHINO",TAKAROT,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,Paradise Chime.jpg
 151,"Love is all, I sing love is all!","Kira-Kira Welcome!
 輝いてたいね　いつだって楽しくなれ
 だから頑張ってみようって
@@ -7789,7 +7789,7 @@ Love is all, I sing love is all!
 ユメは無限大
 どこまでも追いかけてみようよ
 この先にあるトキメキを
-一緒にね抱きしめよう　ずっと！",2022/6/30,畑亜紀,前迫潤哉、サイトウ リョースケ、春川仁志,サイトウ リョースケ、春川仁志,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,ユメ＋ミライ＝無限大.jpg
+一緒にね抱きしめよう　ずっと！",2022/6/30,畑亜紀,"前迫潤哉,サイトウ リョースケ,春川仁志","サイトウ リョースケ,春川仁志",TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,ユメ＋ミライ＝無限大.jpg
 153,迷冥探偵ヨハネ,"本能を逆撫でる　謎には裏と表
 どっちだって全部解き明かすよ
 さあ覚悟して待ってなさい
@@ -7839,7 +7839,7 @@ Love is all, I sing love is all!
 これからヴァイオリン弾いて　バリツで戦うけど
 いざとなったら我の魔法
 闇の力にひれ伏しなさい
-まだ本気出してないよ…ああまだ…！",2022/7/13,畑亜紀,Ryota Saito、Diz,Diz,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,迷冥探偵ヨハネ.jpg
+まだ本気出してないよ…ああまだ…！",2022/7/13,畑亜紀,"Ryota Saito,Diz",Diz,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,迷冥探偵ヨハネ.jpg
 154,ナミオトリフレイン,"夢をいつも　語ってきたね
 どこ行こうか僕ら　これから
 変わる景色　変わらない想い
@@ -8269,7 +8269,7 @@ AH～, 超厳禁ファボタージュ！
 エモエモい　リアクション
 
 ほら電気消す前に…
-リ・プ・し・て！♥",2022/11/9,カミカオル,TOPHAMHAT-KYO (FAKE TYPE.)、TAKAROT、RUSH EYE,RUSH EYE,FALSE,FALSE,FALSE,FALSE,TRUE,TRUE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,わーいわいわい　わいわいわい！.jpg
+リ・プ・し・て！♥",2022/11/9,カミカオル,"TOPHAMHAT-KYO (FAKE TYPE.),TAKAROT,RUSH EYE",RUSH EYE,FALSE,FALSE,FALSE,FALSE,TRUE,TRUE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,わーいわいわい　わいわいわい！.jpg
 161,Pure heart Pure wish,"素敵な衝撃を見ていたい
 心がざわめいて　もっと知りたくって
 自然になぞったメロディー
@@ -8476,7 +8476,7 @@ We can't stop the dreaming days
 季節は変わりゆく　だから旅立とう
 私はどこまでも自分が見たい場所
 求めて飛び出して
-また君に会うんだ　どこかで",2023/6/13,畑亜紀,前迫潤哉、Dr. Lilcom、春川仁志,Dr. Lilcom,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,また君に会うんだ.jpg
+また君に会うんだ　どこかで",2023/6/13,畑亜紀,"前迫潤哉,Dr. Lilcom,春川仁志",Dr. Lilcom,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,また君に会うんだ.jpg
 166,"SORA, FUJI, SUNSHINE!","あたまを雲の上に出し
 四方の山を見おろして
 かみなりさまを下に聞く
@@ -8529,7 +8529,7 @@ Ah sunshine, sunshine, sunshine!
 もっともっと空広がって　空、富士、陽光！
 僕ら輝きたい　いつまでだって
 Sunshine, sunshine, sunshine!
-Ah sunshine, sunshine, sunshine!",2023/6/30,畑亜紀,前迫潤哉、RUSH EYE、春川仁志,RUSH EYE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,"SORA, FUJI, SUNSHINE!.jpg"
+Ah sunshine, sunshine, sunshine!",2023/6/30,畑亜紀,"前迫潤哉,RUSH EYE,春川仁志",RUSH EYE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,"SORA, FUJI, SUNSHINE!.jpg"
 167,MABOROSHI wing,"変化はいつだってさ　突然のことさ
 いつも見慣れてる街に舞い降りた
 
@@ -8591,7 +8591,7 @@ Ah sunshine, sunshine, sunshine!",2023/6/30,畑亜紀,前迫潤哉、RUSH EYE、
 いつもいつも信じてる
 きっと君は探してくれる
 だからね自由に飛ぼう　飛ぼう　飛ぼう　飛ぼう
-飛んじゃうのさ",2023/7/13,畑亜紀,前迫潤哉、MARI、春川仁志,MARI,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,MABOROSHI wing.jpg
+飛んじゃうのさ",2023/7/13,畑亜紀,"前迫潤哉,MARI,春川仁志",MARI,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,MABOROSHI wing.jpg
 168,幻日ミステリウム,"どんなミライ願ってるんだろう？
 
 SUNSHINE in the MIRROR
@@ -8660,7 +8660,7 @@ STARLIGHT in my SKY
 何が変わるんだろう
 SUNSHINE in the MIRROR
 始まるラプソディア　何を変えたいんだろう
-幻想からミステリウム",2023/7/26,畑亜紀,酒井拓也（Arte Refact）、山本恭平（Arte Refact）,酒井拓也（Arte Refact）、山本恭平（Arte Refact）,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,幻日ミステリウム.jpg
+幻想からミステリウム",2023/7/26,畑亜紀,"酒井拓也（Arte Refact）,山本恭平（Arte Refact）","酒井拓也（Arte Refact）,山本恭平（Arte Refact）",TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,幻日ミステリウム.jpg
 169,GAME ON！,"Ah Check it, check it ah
 GAME ON！
 
@@ -8717,7 +8717,7 @@ How about you? くらっと浮遊
 GAME ON NOW！
 
 Oh Oh パ・パ・パ・パラレル GAME ON！
-Oh Oh パ・パ・パ・パラレル GAME ON！",2023/7/26,Kanata Okajima、Hayato Yamamoto,前迫潤哉、サイトウ リョースケ、春川仁志,サイトウ リョースケ,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,幻日ミステリウム.jpg
+Oh Oh パ・パ・パ・パラレル GAME ON！",2023/7/26,"Kanata Okajima,Hayato Yamamoto","前迫潤哉,サイトウ リョースケ,春川仁志",サイトウ リョースケ,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,幻日ミステリウム.jpg
 170,キミノタメボクノタメ,"キミノタメ　ボクノタメ
 みんながいるから
 
@@ -8779,7 +8779,7 @@ ALL FOR ONE（yes, dear）
 一緒だから
 
 キミノタメ　ボクノタメ
-みんながいるから",2023/8/2,UiNA、おっちょこバニー,小高光太郎、UiNA,小高光太郎、石倉誉之,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,キミノタメボクノタメ.jpg
+みんながいるから",2023/8/2,"UiNA,おっちょこバニー","小高光太郎,UiNA","小高光太郎,石倉誉之",TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,キミノタメボクノタメ.jpg
 171,SILENT PAIN,"There's nothing...　空っぽのココロ　色のない　静けさ
 呼吸の Tiny sounds　閉ざした　胸の Doors
 情熱は、実は（Why...?）流した涙より　Fragile
@@ -8824,7 +8824,7 @@ SILENT PAIN　感じてる　""葛藤は希望""
 止めたくない　夢の鼓動
 バラバラの勇気　集めて　Again
 明日を描くなら...　君に、届くかな？
-きっと、届くよね",2023/8/2,FUNK UCHINO,TAKAROT、FUNK UCHINO,TAKAROT、Shoma Yamamoto,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,キミノタメボクノタメ.jpg
+きっと、届くよね",2023/8/2,FUNK UCHINO,"TAKAROT,FUNK UCHINO","TAKAROT,Shoma Yamamoto",TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,キミノタメボクノタメ.jpg
 172,Far far away,"La la la～
 
 夢が叶う音がする Ah
@@ -8859,7 +8859,7 @@ SILENT PAIN　感じてる　""葛藤は希望""
 今すぐ届くといいな　真っ直ぐキミへ
 青い風に乗せて
 咲き誇れ　この歌声　まだ見ぬ世界へ
-遠くまで・・・",2023/8/23,Kanata Okajima、Hayato Yamamoto,Kanata Okajima、MEG、Hayato Yamamoto,MEG、Hayato Yamamoto,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,TRUE,far far away.jpeg
+遠くまで・・・",2023/8/23,"Kanata Okajima,Hayato Yamamoto","Kanata Okajima,MEG,Hayato Yamamoto","MEG,Hayato Yamamoto",FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,TRUE,far far away.jpeg
 173,Be as one!!!,"立ち塞がった障害　前にして
 ココロが燃え上がる So burning
 同じ想いを重ね合わせて
@@ -8986,7 +8986,7 @@ R・E・P　この町で　Stay together!
 心の音は繋がってく
 You and You and You and I...
 また一緒に遊ぼう
-Tu tu tu tu...　もっともっと話そう",2023/9/6,FUNK UCHINO,DJ Chika a.k.a. Inherit、FUNK UCHINO,DJ Chika a.k.a. Inherit、春川仁志,FALSE,FALSE,TRUE,FALSE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,TRUE,R・E・P.jpeg
+Tu tu tu tu...　もっともっと話そう",2023/9/6,FUNK UCHINO,"DJ Chika a.k.a. Inherit,FUNK UCHINO","DJ Chika a.k.a. Inherit,春川仁志",FALSE,FALSE,TRUE,FALSE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,TRUE,R・E・P.jpeg
 175,"Hey, dear my friends","私だけだと思ってた　素直になれないのは
 誰かとわかり合えるって　幸せだね
 今なら　歌えるよ
@@ -9039,7 +9039,7 @@ Hey, dear my friends
 こんなに　こんなにも　美しいんだね
 不安　あふれる　この街で
 出逢えたことをそう
-何と呼ぶんでしょう",2023/9/6,Kanata Okajima、Hayato Yamamoto,Kanata Okajima、Hayato Yamamoto、KAIKI、Nao Nishimura,Hayato Yamamoto,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,TRUE,"Hey, dear my friends.jpeg"
+何と呼ぶんでしょう",2023/9/6,"Kanata Okajima,Hayato Yamamoto","Kanata Okajima,Hayato Yamamoto,KAIKI,Nao Nishimura",Hayato Yamamoto,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,TRUE,"Hey, dear my friends.jpeg"
 176,テ・キ・ナ ミュージック,"Sha la la... テ・キ・ナミュージック
 鳴り止まないどこまでも
 Sha la la... テ・キ・ナミュージック
@@ -9112,7 +9112,7 @@ Sha la la... テ・キ・ナミュージック
 Sha la la... テ・キ・ナミュージック
 新しい予感を信じよう！私のミュージック
 
-テ・キ・ナミュージック",2023/9/27,Hayato Yamamoto,SHOW、TAKAROT、Shoma Yamamoto,TAKAROT、Shoma Yamamoto,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,TRUE,幻日のヨハネ1巻.jpg
+テ・キ・ナミュージック",2023/9/27,Hayato Yamamoto,"SHOW,TAKAROT,Shoma Yamamoto","TAKAROT,Shoma Yamamoto",FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,TRUE,幻日のヨハネ1巻.jpg
 177,GIRLS!!,"女の子って楽しいんだね
 誰にも止められない　お話
 あっと言う間に過ぎていく
@@ -9175,7 +9175,7 @@ La La La
 僕ら　スペシャル！
 
 ねえ、次はいつ集まる？！
-だって　僕ら　スペシャル！",2023/9/27,Kanata Okajima、Hayato Yamamoto,高田 暁,高田 暁,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,GIRLS!!.jpeg
+だって　僕ら　スペシャル！",2023/9/27,"Kanata Okajima,Hayato Yamamoto",高田 暁,高田 暁,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,GIRLS!!.jpeg
 178,Wonder sea breeze,"待ち焦がれた今日が来た
 波の音も違う朝
 トクベツな予感がした
@@ -9222,7 +9222,7 @@ Hello happy days 街中浮かれて
 世界中へと響け Wonder sea breeze（届けるよ！）
 
 懐かしい匂いがした
-きっときっときっと　もう僕ら　とめられない！",2023/9/27,Kanata Okajima、Hayato Yamamoto,倉内達矢,倉内達矢,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,Wonder sea breeze.jpg
+きっときっときっと　もう僕ら　とめられない！",2023/9/27,"Kanata Okajima,Hayato Yamamoto",倉内達矢,倉内達矢,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,Wonder sea breeze.jpg
 179,Forever U & I,"君は誰　答えて
 私は誰　答えて
 迫り来る影に怯えていたけど
@@ -9276,7 +9276,7 @@ Hello happy days 街中浮かれて
 私は君で
 僕は君なんだ
 終わることのない
-物語を始めよう",2023/10/11,Kanata Okajima、Hayato Yamamoto,Kanata Okajima、Hayato Yamamoto,Hayato Yamamoto,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,TRUE,Forever U&I.jpg
+物語を始めよう",2023/10/11,"Kanata Okajima,Hayato Yamamoto","Kanata Okajima,Hayato Yamamoto",Hayato Yamamoto,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,TRUE,Forever U&I.jpg
 180,La la 勇気のうた,"La la la La la la
 心に咲いた
 僕の僕たちの
@@ -9334,7 +9334,7 @@ La la la La la la
 La la la La la la
 心に咲いた
 僕の僕たちの
-La la 勇気のうた",2023/10/11,Kanata Okajima、Hayato Yamamoto,Fi'Ne、米澤森人、alura,Fi'Ne、米澤森人、alura,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,La la 勇気のうた.jpg
+La la 勇気のうた",2023/10/11,"Kanata Okajima,Hayato Yamamoto","Fi'Ne,米澤森人,alura","Fi'Ne,米澤森人,alura",TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,La la 勇気のうた.jpg
 181,"Tick-Tack, Tick-Tack","La la la. La la la la la
 おかえり。ただいま。
 
@@ -9481,7 +9481,7 @@ Special!! Special!! Special!!
 目一杯はしゃいでいたい！
 繋ぐ手と手　伝う想い　一つになるんだ
 Yea, Special Holidays
-（Woh, Woh, Woh oh oh...）",2023/12/22,Hayato Yamamoto,YUUKI SANO、TAKAROT、Shoma Yamamoto,Shoma Yamamoto、TAKAROT,TRUE,FALSE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,TRUE,幻日のヨハネ4巻.jpg
+（Woh, Woh, Woh oh oh...）",2023/12/22,Hayato Yamamoto,"YUUKI SANO,TAKAROT,Shoma Yamamoto","Shoma Yamamoto,TAKAROT",TRUE,FALSE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,TRUE,幻日のヨハネ4巻.jpg
 184,好奇心ジャーニー,"La la la la la
 思いのままに
 La la la la la
@@ -9544,7 +9544,7 @@ La la la la la...
 思いのままに
 La la la la la...
 好奇心ジャーニー
-次へいこう！",2024/1/26,Shoma Yamamoto、TAKAROT,山口雄太,山口雄太,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,TRUE,幻日のヨハネ5巻.jpg
+次へいこう！",2024/1/26,"Shoma Yamamoto,TAKAROT",山口雄太,山口雄太,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,TRUE,幻日のヨハネ5巻.jpg
 185,ヌマヅやっさよいさ唄,"さあさあ　みな囃子によっといで
 ドンカッカ　轟く大太鼓
 ずんずん　森へ山へ遠くまで
@@ -9758,7 +9758,7 @@ BLOOM OF COLORS",2024/3/27,Hayato Yamamoto,光増ハジメ (FirstCall),光増ハ
 オーダー
 承りました
 愛と夢乗せて
-はいっ！",2024/5/8,ケンモチヒデフミ,ケンモチヒデフミ、DJ Chika a.k.a. INHERIT,ケンモチヒデフミ,FALSE,FALSE,FALSE,FALSE,TRUE,TRUE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,piece piece pizza.jpg
+はいっ！",2024/5/8,ケンモチヒデフミ,"ケンモチヒデフミ,DJ Chika a.k.a. INHERIT",ケンモチヒデフミ,FALSE,FALSE,FALSE,FALSE,TRUE,TRUE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,piece piece pizza.jpg
 188,U-CYU,"流れ星に123
 Every day Every Night
 Tell me whywhywhy
@@ -9864,7 +9864,7 @@ Yeah
 宇宙船で456
 ここで手叩け
 Every body
-Clap Clap",2024/5/8,ケンモチヒデフミ、DJ Chika a.k.a. INHERIT,ケンモチヒデフミ、DJ Chika a.k.a. INHERIT,DJ Chika a.k.a. INHERIT,FALSE,FALSE,FALSE,FALSE,TRUE,TRUE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,piece piece pizza.jpg
+Clap Clap",2024/5/8,"ケンモチヒデフミ,DJ Chika a.k.a. INHERIT","ケンモチヒデフミ,DJ Chika a.k.a. INHERIT",DJ Chika a.k.a. INHERIT,FALSE,FALSE,FALSE,FALSE,TRUE,TRUE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,piece piece pizza.jpg
 189,Deep Blue,"誘われるまま踏み入った
 ハードに描かれたストーリー
 救世主みたいな顔して
@@ -9961,7 +9961,7 @@ Clap Clap",2024/5/8,ケンモチヒデフミ、DJ Chika a.k.a. INHERIT,ケンモ
 なんでイマは過ぎてくんだろう
 
 消えないユメの桜　ひらりひらり　舞うよ
-消えないユメは桜　空を舞いミライへ",2024/5/29,畑亜紀,前迫潤哉、中野悟朗、春川仁志,中野悟朗、春川仁志,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,Deep Blue.jpg
+消えないユメは桜　空を舞いミライへ",2024/5/29,畑亜紀,"前迫潤哉,中野悟朗,春川仁志","中野悟朗,春川仁志",TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,Deep Blue.jpg
 191,僕らの海でまた会おう,"あたらしい言葉たち　なつかしい歌へと
 重なってなんかもっと　違う感じかたが生まれそうだよ
 それは出会いから　いままでの大切な想い
@@ -9996,7 +9996,7 @@ Clap Clap",2024/5/8,ケンモチヒデフミ、DJ Chika a.k.a. INHERIT,ケンモ
 ひとりひとりの願いが　輝いてるみたいな海よ！
 ここでまた会うんだ　ここでまた会うんだ　きっとねまた会おう
 みんなみんな楽しいこと　探す旅の途中なんだ
-たくさん冒険して　次に語りあえる時が待ち遠しいよ！",2024/6/30,畑亜紀,RUSH EYE、春川仁志,RUSH EYE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,僕らの海でまた会おう.jpg
+たくさん冒険して　次に語りあえる時が待ち遠しいよ！",2024/6/30,畑亜紀,"RUSH EYE,春川仁志",RUSH EYE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,僕らの海でまた会おう.jpg
 192,永久hours,"忘れないで　忘れないよ！
 数えたらキリがない！　ない！ない！よね？
 いろんなことがありすぎて
@@ -10049,7 +10049,7 @@ Clap Clap",2024/5/8,ケンモチヒデフミ、DJ Chika a.k.a. INHERIT,ケンモ
 ユメは終わんないよ（君と僕は）　ユメ見たままさ（輝こう）
 楽しいキモチで　ずっとずっとつながるのさ
 忘れないで　忘れない！
-忘れないで　忘れないよ忘れないよ！！",2024/12/18,畑亜紀,Kanata Okajima、Hayato Yamamoto,Hayato Yamamoto,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,永久hours.jpg
+忘れないで　忘れないよ忘れないよ！！",2024/12/18,畑亜紀,"Kanata Okajima,Hayato Yamamoto",Hayato Yamamoto,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,永久hours.jpg
 193,僕らの旅は終わらない,"前進中！　前進中！　げんざい進行夢中！
 前進中！　前進中！　ぼうけん礼賛夢道！
 
@@ -10097,7 +10097,7 @@ Clap Clap",2024/5/8,ケンモチヒデフミ、DJ Chika a.k.a. INHERIT,ケンモ
 また会えるよね、きっと！
 
 前進中！　前進中！　げんさい進行夢中！
-前進中！　前進中！　ぼうけん礼賛夢道！",2024/12/18,畑亜紀,Junya Maesako、Dr. Lilcom、Hitoshi Harukawa,Dr. Lilcom、Hitoshi Harukawa,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,永久hours.jpg
+前進中！　前進中！　ぼうけん礼賛夢道！",2024/12/18,畑亜紀,"Junya Maesako,Dr. Lilcom,Hitoshi Harukawa","Dr. Lilcom,Hitoshi Harukawa",TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,永久hours.jpg
 194,ふたりでひとつ,"早起きできたよ！（Happy！）
 一日晴れ予報（Lucky！）
 キミは大げさに 感心した顔してる
@@ -10191,7 +10191,7 @@ SHINE!　コレは戦う僕らのメッセージ　届けよ　皆んなに
 眠り続けてた闇の果てに　祈りを背にして、飛び立つ
 
 あなたは誰?　あなたの言葉で旅立つ
-あなたは誰?　あなたの言葉で飛び立つ...",2026/3/11,aim,"MEG , Kanata Okajima",MEG,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE,FALSE,TRUE,FALSE,TRUE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,GKSS_gk.jpg
+あなたは誰?　あなたの言葉で飛び立つ...",2026/3/11,aim,"MEG,Kanata Okajima",MEG,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE,FALSE,TRUE,FALSE,TRUE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,GKSS_gk.jpg
 196,BURN:BORN,"やっと会えたね。
 ずっと逢いたかった。
 声に出せない想いがあったよ
@@ -10262,7 +10262,7 @@ BURN:BORN
 ""We gonna RE:BORN""
 いま　いま　いま
 We gonna BURN:BORN
-We gonna BURN:BORN",2026/3/11,Kanata Okajima,"MEG , Kanata Okajima",MEG,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE,FALSE,TRUE,FALSE,TRUE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,GKSS_gk.jpg
+We gonna BURN:BORN",2026/3/11,Kanata Okajima,"MEG,Kanata Okajima",MEG,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE,FALSE,TRUE,FALSE,TRUE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,GKSS_gk.jpg
 197,BLACK OUT,"Let's sing in your song alright!
 Let's sing in my song all right!
 

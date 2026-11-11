@@ -142,6 +142,9 @@
             object-fit: cover;
             width: calc(min(350px, 100%));
         }
+        .creatorBox {
+            display: flex;
+        }
     </style>
 </head>
 <body>
@@ -184,10 +187,10 @@
             </div>
             <div class="keyword-input row">
                 <div class="input-box col-7">
-                    <input type="text" id="writer" class="form-control" placeholder="キーワードを入力してください">                    
+                    <input type="text" id="writers" class="form-control" placeholder="キーワードを入力してください">                    
                 </div>
                 <div class="serch-method col-4">
-                    <input type="checkbox" class="form-check-input" id="writer_or">        
+                    <input type="checkbox" class="form-check-input" id="writers_or">        
                     <div class="form-check-label">OR検索</div>       
                 </div>
             </div>
@@ -198,10 +201,10 @@
             </div>
             <div class="keyword-input row">
                 <div class="input-box col-7">
-                    <input type="text" id="composition" class="form-control" placeholder="キーワードを入力してください">                    
+                    <input type="text" id="compositions" class="form-control" placeholder="キーワードを入力してください">                    
                 </div>
                 <div class="serch-method col-4">
-                    <input type="checkbox" class="form-check-input" id="composition_or">        
+                    <input type="checkbox" class="form-check-input" id="compositions_or">        
                     <div class="form-check-label">OR検索</div>       
                 </div>
             </div>
@@ -212,10 +215,10 @@
             </div>
             <div class="keyword-input row">
                 <div class="input-box col-7">
-                    <input type="text" id="arrangement" class="form-control" placeholder="キーワードを入力してください">                    
+                    <input type="text" id="arrangements" class="form-control" placeholder="キーワードを入力してください">                    
                 </div>
                 <div class="serch-method col-4">
-                    <input type="checkbox" class="form-check-input" id="arrangement_or">
+                    <input type="checkbox" class="form-check-input" id="arrangements_or">
                     <div class="form-check-label">OR検索</div>            
                 </div>
             </div>
@@ -432,13 +435,13 @@
             lyrics: {
                 type: "includes"
             },
-            writer: {
+            writers: {
                 type: "includes"
             },
-            arrangement: {
+            arrangements: {
                 type: "includes"
             },
-            composition: {
+            compositions: {
                 type: "includes"
             },
             chika: {
@@ -518,11 +521,15 @@
                 value: [],
                 orSearch: false
             },
-            writer: {
+            writers: {
                 value: [],
                 orSearch: false
             },
-            arrangement: {
+            compositions: {
+                value: [],
+                orSearch: false
+            },
+            arrangements: {
                 value: [],
                 orSearch: false
             },
@@ -541,6 +548,9 @@
                     songs = parseCSV(csvContent);  // CSVの内容を解析
                     songs.forEach( song => {
                         song.selected = false;
+                        song.writers = song.writers.split(",");
+                        song.compositions = song.compositions.split(",");
+                        song.arrangements = song.arrangements.split(",");
                     })
                     console.log(filterConditions);
                     getCondition();
@@ -629,6 +639,11 @@
 
         document.getElementById('clearButton').addEventListener('click', function() {
             // 検索条件をクリア
+            clearCondition();
+        });
+
+        function clearCondition () {
+            // 検索条件をクリア
             filterLabels.forEach(filterLabel => {
                 let enteredElement = document.getElementById(filterLabel);
                 if(enteredElement) {
@@ -642,7 +657,7 @@
                     
                 }
             })
-        });
+        }
 
         // ヒントコーナーの曲を表示する関数
         document.getElementById('hintButton').addEventListener('click', function() {
@@ -1084,17 +1099,40 @@
                     eachResult = true;
                 }
                 filterCondition[filterConditionLabel].value.forEach(keyword => {
-                    // 検索キーワードが含まれていた場合の処理
-                    if(song[filterConditionLabel].toLowerCase().includes(keyword)) {
-                        // or検索なら結果をtrueにする
-                        if(filterCondition[filterConditionLabel].orSearch) {
-                            eachResult = true;
-                        }
+                    console.log(song);
+                    console.log(filterConditionLabel);
+                    console.log(song[filterConditionLabel]);
+                    console.log("typeof song[filterConditionLabel]");
+                    console.log(typeof song[filterConditionLabel]);
+                    if(typeof song[filterConditionLabel] === 'object') {
+                        song[filterConditionLabel].forEach(element => {
+                            // 検索キーワードが含まれていた場合の処理
+                            if(element.toLowerCase().includes(keyword)) {
+                                // or検索なら結果をtrueにする
+                                if(filterCondition[filterConditionLabel].orSearch) {
+                                    eachResult = true;
+                                }
+                            } else {
+                                // 検索キーワードが含まれていなかった場合の処理
+                                // and検索なら結果をfalseにする
+                                if(!filterCondition[filterConditionLabel].orSearch) {
+                                    eachResult = false;
+                                }
+                            }
+                        });
                     } else {
-                        // 検索キーワードが含まれていなかった場合の処理
-                        // and検索なら結果をfalseにする
-                        if(!filterCondition[filterConditionLabel].orSearch) {
-                            eachResult = false;
+                        // 検索キーワードが含まれていた場合の処理
+                        if(song[filterConditionLabel].toLowerCase().includes(keyword)) {
+                            // or検索なら結果をtrueにする
+                            if(filterCondition[filterConditionLabel].orSearch) {
+                                eachResult = true;
+                            }
+                        } else {
+                            // 検索キーワードが含まれていなかった場合の処理
+                            // and検索なら結果をfalseにする
+                            if(!filterCondition[filterConditionLabel].orSearch) {
+                                eachResult = false;
+                            }
                         }
                     }
                 })
@@ -1192,9 +1230,12 @@
             })
         }
 
+        // 検索を実行する関数
         function updateQuery() {
+            // クエリから検索条件を取得するためにurlの変数を作成
             const url = new URL(window.location.href);
             url.search = '';
+            // 
             filterLabels.forEach(filterLabel => {
                 if(songElements[filterLabel].type === "includes") {
                     if(filterConditions[filterLabel].value.length) {
@@ -1249,6 +1290,7 @@
             })
         }
 
+        // 楽曲情報のdivを作成する関数
         function makeSongDiv(displayedSong, linkId = null) {
             // 戻るボタン
             const backButton = document.createElement('a');
@@ -1314,22 +1356,79 @@
                 const creatorsDiv = document.createElement('div');
 
                 // 作詞者情報を入れる用のdiv
-                const writerDiv = document.createElement('div');
-                writerDiv.textContent = "作詞: " + displayedSong.writer;
-                writerDiv.classList.add('me-3');
-                creatorsDiv.appendChild(writerDiv);
+                const writersDiv = document.createElement('div');
+                writersDiv.classList.add('creatorBox')
+                const writersTitleDiv = document.createElement('div');
+                writersTitleDiv.textContent = "作詞:";
+                writersTitleDiv.classList.add('me-3');
+                writersDiv.appendChild(writersTitleDiv);
+                
+                displayedSong.writers.forEach( writer => {
+                    const writerDiv = document.createElement('div');
+                    writerDiv.textContent = writer;
+                    writerDiv.classList.add('me-1');
+                    writerDiv.classList.add('link-primary');
+                    // 作詞者名をクリックするとクリックした名前で検索を行う
+                    writerDiv.addEventListener('click', function() {
+                        clearCondition();
+                        document.getElementById('writers').value = writer;
+                        updateList();
+                    });
+                    writersDiv.appendChild(writerDiv);
+                })
+                
+                creatorsDiv.appendChild(writersDiv);
 
                 // 作曲者情報を入れる用のdiv
-                const compositionDiv = document.createElement('div');
-                compositionDiv.textContent = "作曲: " + displayedSong.composition;
-                compositionDiv.classList.add('me-3');
-                creatorsDiv.appendChild(compositionDiv);
+                const compositionsDiv = document.createElement('div');
+                compositionsDiv.classList.add('creatorBox')
+                const compositionsTitleDiv = document.createElement('div');
+                compositionsTitleDiv.textContent = "作曲:";
+                compositionsTitleDiv.classList.add('me-3');
+                compositionsDiv.appendChild(compositionsTitleDiv);
+                
+                displayedSong.compositions.forEach( composition => {
+                    const compositionDiv = document.createElement('div');
+                    compositionDiv.textContent = composition;
+                    compositionDiv.classList.add('me-1');
+                    compositionDiv.classList.add('link-primary');
+                    // 作曲者名をクリックするとクリックした名前で検索を行う
+                    compositionDiv.addEventListener('click', function() {
+                        clearCondition();
+                        document.getElementById('compositions').value = composition;
+                        updateList();
+                    });
+                    compositionsDiv.appendChild(compositionDiv);
+                })
+                
+                creatorsDiv.appendChild(compositionsDiv);
+
 
                 // 編曲者情報を入れる用のdiv
-                const arrangementDiv = document.createElement('div');
-                arrangementDiv.textContent = "編曲: " + displayedSong.arrangement;
-                arrangementDiv.classList.add('me-3');
-                creatorsDiv.appendChild(arrangementDiv);
+                const arrangementsDiv = document.createElement('div');
+                arrangementsDiv.classList.add('creatorBox')
+                const arrangementsTitleDiv = document.createElement('div');
+                arrangementsTitleDiv.textContent = "作曲:";
+                arrangementsTitleDiv.classList.add('me-3');
+                arrangementsDiv.appendChild(arrangementsTitleDiv);
+                
+                // 編曲者が複数いることを想定し、編曲者のリストをループする
+                displayedSong.arrangements.forEach( arrangement => {
+                    const arrangementDiv = document.createElement('div');
+                    arrangementDiv.textContent = arrangement;
+                    arrangementDiv.classList.add('me-1');
+                    arrangementDiv.classList.add('link-primary');
+                    // 編曲者名をクリックするとクリックした名前で検索を行う
+                    arrangementDiv.addEventListener('click', function() {
+                        clearCondition();
+                        document.getElementById('arrangements').value = arrangement;
+                        updateList();
+                    });
+                    arrangementsDiv.appendChild(arrangementDiv);
+                })
+
+
+                creatorsDiv.appendChild(arrangementsDiv);
                 songDiv.appendChild(creatorsDiv);
             }
 
