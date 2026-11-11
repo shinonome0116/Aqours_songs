@@ -1373,6 +1373,9 @@
                         clearCondition();
                         document.getElementById('writers').value = writer;
                         updateList();
+                        document.getElementById('index-container').scrollIntoView({
+                            block: 'start'
+                        });
                     });
                     writersDiv.appendChild(writerDiv);
                 })
@@ -1397,6 +1400,9 @@
                         clearCondition();
                         document.getElementById('compositions').value = composition;
                         updateList();
+                        document.getElementById('index-container').scrollIntoView({
+                            block: 'start'
+                        });
                     });
                     compositionsDiv.appendChild(compositionDiv);
                 })
@@ -1423,6 +1429,9 @@
                         clearCondition();
                         document.getElementById('arrangements').value = arrangement;
                         updateList();
+                        document.getElementById('index-container').scrollIntoView({
+                            block: 'start'
+                        });
                     });
                     arrangementsDiv.appendChild(arrangementDiv);
                 })
