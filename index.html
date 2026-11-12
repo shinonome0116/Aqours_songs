@@ -560,16 +560,6 @@
             
             
             
-            fetch(hintFilePath)
-                .then(response => response.json())  // CSVファイルをテキストとして取得
-                .then(hintJson => {
-                    hints = hintJson;
-                    console.log(hints);
-                })
-                .catch(error => {
-                    console.error('CSVファイルの読み込みエラー:', error);
-                });
-
             fetch(liveFilePath)
                 .then(response => response.json())  // CSVファイルをテキストとして取得
                 .then(liveJson => {
@@ -761,6 +751,7 @@
         document.getElementById('clearButton').addEventListener('click', function() {
             // 検索条件をクリア
             clearCondition();
+            updateList();
         });
 
         function clearCondition () {
