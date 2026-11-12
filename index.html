@@ -699,7 +699,6 @@
 
         function resetList() {
             //ボタンの表示を初期化
-            document.getElementById('hintLabel').textContent = "ヒントを表示";
             document.getElementById('filterButton').textContent = "検索";
             // 目次をクリア
             const liveTitleContainer = document.getElementById('liveTitle-container');
@@ -744,7 +743,6 @@
         document.getElementById('showSelected').addEventListener('click', function() {
             // 入力フォームから検索条件を読み込み
             getCondition();
-            document.getElementById('hintLabel').textContent = "ヒントを表示";
             displaySongs(songs.filter(song => song.selected));
         });
 
@@ -771,95 +769,6 @@
             })
         }
 
-        // ヒントコーナーの曲を表示する関数
-        document.getElementById('hintButton').addEventListener('click', function() {
-            showHints();
-        });
-
-        function showHints() {
-            getCondition();
-            displayedInformation = "hints";
-            resetList()
-            document.getElementById('hintLabel').textContent = "ヒントを更新";
-            document.getElementById('filterButton').textContent = "検索/ヒント解除";
-            const indexContainer = document.getElementById('index-container');
-            const container = document.getElementById('songs-container');
-
-            getCondition();
-
-            // 目次を表示
-            if(document.getElementById("index").checked) {
-                const indexTitleDiv = document.createElement('div');
-                indexTitleDiv.textContent = "目次";
-                indexTitleDiv.classList.add('col-12');
-                indexTitleDiv.classList.add('fw-bold');
-                indexTitleDiv.classList.add('fs-5');
-                indexTitleDiv.classList.add('mb-2');
-                indexContainer.appendChild(indexTitleDiv);
-                for(let i=0; i < hints.length; i++) {
-                    const hintDiv = document.createElement('div');
-                    hintDiv.classList.add('hint');
-                    hintDiv.classList.add('row');
-
-                    const hintTitleDiv = document.createElement('div');
-                    hintTitleDiv.classList.add('hint-title');
-                    hintTitleDiv.classList.add('fs-3');
-                    hintTitleDiv.textContent = "第" + (i+1) + "回";
-                    hintDiv.appendChild(hintTitleDiv);
-
-                    for(let j = 0; j < hints[i].length; j++ ) {
-                        const displayedSong = songs.find(song => {
-                            return song.id === hints[i][j];
-                        });
-                        const songDiv = document.createElement('div');
-                        songDiv.classList.add('song');
-                        if(document.getElementById("rowDisplay").checked) {
-                            songDiv.classList.add('col-12');
-                            songDiv.classList.add('col-lg-6');
-                            songDiv.classList.add('col-xxl-4');
-                        }
-
-                        const titleDiv = document.createElement('a');
-                        titleDiv.classList.add('song-title');
-                        titleDiv.textContent = displayedSong.title;
-                        titleDiv.classList.add('link-primary');
-                        titleDiv.addEventListener('click', function() {
-                            document.getElementById(displayedSong.id).scrollIntoView({
-                                block: 'start'
-                            });
-                        });
-
-                        songDiv.appendChild(titleDiv);
-                        hintDiv.appendChild(songDiv);
-                        indexContainer.appendChild(hintDiv);
-                    }
-                }
-            }
-            
-            // ヒントを表示
-            for(let i=0; i < hints.length; i++) {
-                const hintDiv = document.createElement('div');
-                hintDiv.classList.add('hint');
-                hintDiv.classList.add('row');
-
-                const hintTitleDiv = document.createElement('div');
-                hintTitleDiv.classList.add('fw-bold');
-                hintTitleDiv.classList.add('fs-3');
-                hintTitleDiv.classList.add('hint-title');
-                hintTitleDiv.classList.add('col-12');
-                hintTitleDiv.textContent = "第" + (i+1) + "回";
-                hintDiv.appendChild(hintTitleDiv);
-
-                for(let j = 0; j < hints[i].length; j++ ) {
-                    const displayedSong = songs.find(song => {
-                        return song.id === hints[i][j];
-                    });
-
-                    hintDiv.appendChild(makeSongDiv(displayedSong));
-                    container.appendChild(hintDiv);
-                }
-            }
-        }
 
         // ライブ表示ボタンを押した時の処理
         document.getElementById('liveButton').addEventListener('click', function() {
