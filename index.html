@@ -552,13 +552,17 @@
                         song.compositions = song.compositions.split(",");
                         song.arrangements = song.arrangements.split(",");
                     })
-                    console.log(filterConditions);
+                    // IndexedDBへ保存
+                    saveSongsToDB(songs);
                     getCondition();
                     displaySongs(filteredSongs(filterConditions));
                 })
                 .catch(error => {
                     console.error('CSVファイルの読み込みエラー:', error);
+                    songs = loadSongsFromDB();
                 });
+            
+            
             
             fetch(hintFilePath)
                 .then(response => response.json())  // CSVファイルをテキストとして取得
@@ -585,6 +589,127 @@
                     console.error('CSVファイルの読み込みエラー:', error);
                 });
         };
+
+        /**
+        * IndexedDBに接続する
+        *
+        * データベースが存在しなければ新規作成される
+        * resolveでDBオブジェクトを返す
+        */
+        function openDB() {
+            return new Promise((resolve, reject) => {
+
+                // データベース名: SongsDB
+                // バージョン: 1
+                const request = indexedDB.open("SongsDB", 1);
+                /**
+                 * DBの初回作成時やバージョンアップ時に実行される
+                 */
+                request.onupgradeneeded = (event) => {
+
+                    const db = event.target.result;
+
+                    // songsストアが存在しない場合は作成
+                    if (!db.objectStoreNames.contains("songs")) {
+
+                        /**
+                         * keyPathにidを指定
+                         * song.idが主キーになる
+                         */
+                        db.createObjectStore("songs", {
+                            keyPath: "id"
+                        });
+                    }
+                };
+                /**
+                 * DB接続成功
+                 */
+                request.onsuccess = () => {
+                    resolve(request.result);
+                };
+                /**
+                 * DB接続失敗
+                 */
+                request.onerror = () => {
+                    reject(request.error);
+                };
+            });
+        }
+
+        async function saveSongsToDB(songs) {
+
+            // DB接続
+            const db = await openDB();
+
+            // 読み書き可能トランザクション開始
+            const tx = db.transaction("songs", "readwrite");
+
+            // songsストア取得
+            const store = tx.objectStore("songs");
+
+            // 全楽曲を保存
+            songs.forEach(song => {
+
+                /**
+                 * put()
+                 * 同じidが存在する場合 → 更新
+                 * 存在しない場合 → 新規追加
+                 */
+                store.put(song);
+            });
+
+            return new Promise((resolve, reject) => {
+
+                /**
+                 * 全データ保存完了
+                 */
+                tx.oncomplete = () => {
+                    console.log("楽曲データ保存完了");
+                    resolve();
+                };
+
+                /**
+                 * 保存失敗
+                 */
+                tx.onerror = () => {
+                    reject(tx.error);
+                };
+            });
+        }
+
+        /**
+         * IndexedDBから全楽曲データを取得する
+         *
+         * @returns {Promise<Array>}
+         */
+        async function loadSongsFromDB() {
+
+            const db = await openDB();
+
+            return new Promise((resolve, reject) => {
+
+                // 読み取り専用トランザクション開始
+                const tx = db.transaction("songs", "readonly");
+
+                const store = tx.objectStore("songs");
+
+                // 全レコード取得
+                const request = store.getAll();
+
+                request.onsuccess = () => {
+
+                    console.log(
+                        `IndexedDBから${request.result.length}件取得`
+                    );
+
+                    resolve(request.result);
+                };
+
+                request.onerror = () => {
+                    reject(request.error);
+                };
+            });
+        }
 
         function resetList() {
             //ボタンの表示を初期化
