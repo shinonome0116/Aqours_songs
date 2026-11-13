@@ -162,7 +162,7 @@
                     <input type="text" id="title" class="form-control" placeholder="キーワードを入力してください" width="100%">                    
                 </div>
                 <div class="serch-method col-4">
-                    <input type="checkbox" class="form-check-input" id="title_or">        
+                    <input type="checkbox" class="form-check-input" id="title_or" checked>        
                     <div class="form-check-label">OR検索</div> 
                 </div>
             </div>
@@ -176,7 +176,7 @@
                     <input type="text" id="lyrics" class="form-control" placeholder="キーワードを入力してください" width="100%">                    
                 </div>
                 <div class="serch-method col-4">
-                    <input type="checkbox" class="form-check-input" id="lyrics_or">        
+                    <input type="checkbox" class="form-check-input" id="lyrics_or" checked>        
                     <div class="form-check-label">OR検索</div> 
                 </div>
             </div>
@@ -190,7 +190,7 @@
                     <input type="text" id="writers" class="form-control" placeholder="キーワードを入力してください">                    
                 </div>
                 <div class="serch-method col-4">
-                    <input type="checkbox" class="form-check-input" id="writers_or">        
+                    <input type="checkbox" class="form-check-input" id="writers_or" checked>        
                     <div class="form-check-label">OR検索</div>       
                 </div>
             </div>
@@ -204,7 +204,7 @@
                     <input type="text" id="compositions" class="form-control" placeholder="キーワードを入力してください">                    
                 </div>
                 <div class="serch-method col-4">
-                    <input type="checkbox" class="form-check-input" id="compositions_or">        
+                    <input type="checkbox" class="form-check-input" id="compositions_or" checked>        
                     <div class="form-check-label">OR検索</div>       
                 </div>
             </div>
@@ -218,7 +218,7 @@
                     <input type="text" id="arrangements" class="form-control" placeholder="キーワードを入力してください">                    
                 </div>
                 <div class="serch-method col-4">
-                    <input type="checkbox" class="form-check-input" id="arrangements_or">
+                    <input type="checkbox" class="form-check-input" id="arrangements_or" checked>
                     <div class="form-check-label">OR検索</div>            
                 </div>
             </div>
@@ -511,27 +511,27 @@
         let filterConditions = {
             title: {
                 value: [],
-                orSearch: false
+                orSearch: true
             },
             lyrics: {
                 value: [],
-                orSearch: false
+                orSearch: true
             },
             writers: {
                 value: [],
-                orSearch: false
+                orSearch: true
             },
             compositions: {
                 value: [],
-                orSearch: false
+                orSearch: true
             },
             arrangements: {
                 value: [],
-                orSearch: false
+                orSearch: true
             },
             lyrics: {
                 value: [],
-                orSearch: false
+                orSearch: true
             }
         };
 
